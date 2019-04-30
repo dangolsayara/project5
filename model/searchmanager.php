@@ -1,8 +1,9 @@
 <?php
+include "database/Database.php";
 	/**
 	 * 
 	 */
-	class search
+	class carsearch extends database
 	{
 		private $country;
 		private $from;
@@ -10,6 +11,7 @@
 
 		function __construct($country,$from,$until)
 		{
+			parent::__construct();
 			$this->country=$country;
 			$this->from=$from;
 			$this->until=$until;
@@ -17,7 +19,13 @@
 
 		public function generateresult()
 		{
-			return " I have a value $this->country, $this->from, $this->until";
+			$stmt= $conn->prepare("SELECT * FROM car where carmodel like ':country'");   // country is carmodel for now
+			$stmt->bindParam(':country',$this->country);
+			$stmt->execute();
+			if($stmt->rowCount()>0)
+				return $stmt->fetchAll();
+
+			return false;
 		}
 	}
 ?>	

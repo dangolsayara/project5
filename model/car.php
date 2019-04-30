@@ -28,6 +28,23 @@ class car extends database
 
 		$stmt->execute();
 	}
+	function findbyid($id)
+	{
+		$stmt= $this->conn->prepare("SELECT * from car where id=:id");
+		$stmt->bindParam(':id',$id);
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		if($stmt->rowcount()>0)
+		{
+			$data=$stmt->fetch();
+			$this->id=$data['id'];
+			$this->carbrand=$data['carbrand'];
+			$this->carmodel=$data['carmodel'];
+			$this->cardate=$data['cardate'];
+			$this->price=$data['price'];
+		}
+
+	}
 }
 
 /**
