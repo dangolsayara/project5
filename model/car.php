@@ -45,20 +45,17 @@ class car extends database
 		}
 
 	}
-}
-
-/**
- * 
- */
-class carsearchmodel
-{
-	public $id;
-	public $carbrand;
-	public $carmodel;
-	public $cardate;
-	public $price;
-	function __construct()
+	function search($country,$from,$until)
 	{
-		# code...
+		$stmt=$this->conn->prepare("SELECT * from car where country like :country");
+		$stmt->bindParam(':country',$country);
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		if($stmt->rowcount()>0)
+		{
+			$data=$stmt->fetchall();
+			return $data;
+		}
 	}
+
 }
