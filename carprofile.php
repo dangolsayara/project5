@@ -12,7 +12,7 @@
 <body>
 	<table border="1">
 		<tr>
-			<td><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></td>
+			<td colspan=2><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"></td>
 		</tr>
 		<tr>
 			<td>model</td>

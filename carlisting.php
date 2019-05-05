@@ -12,11 +12,11 @@ include 'model/car.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Car listing</title>
 </head>
 <body>
 	<form method="POST">
-		<table border="4">
+		<table border="1">
 			<tr>
 				<td>carbrand</td>
 				<td><input type="text" name="carbrand"></td>
