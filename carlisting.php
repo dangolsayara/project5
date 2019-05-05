@@ -21,7 +21,7 @@ include 'model/car.php';
 				<td>carbrand</td>
 				<td><input type="text" name="carbrand"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<td>carmodel</td>
 				<td><input type="text" name="carmodel"></td>
 			</tr>

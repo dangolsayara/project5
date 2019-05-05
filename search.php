@@ -3,7 +3,7 @@
 
 	if (isset($_GET['country'])) 
 	{
-		$country=$_GET['country'];
+		$place=$_GET['country'];
 	}
 	else
 	{
@@ -27,7 +27,13 @@
 	}
 
 	$car=new car();
-	$result=$car->search($country,$from,$until);
+	$result=$car->search('Bhaktapur',$from,$until);
+	//$result=$car->findbyid('1');
+	if ($result==false)
+	 {
+
+		echo "No data found";
+	}
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +42,18 @@
 	<title>Find what you like</title>
 </head>
 <body>
- 	<table>
+ 	<table border="2">
  		<tr>
- 			<td rowspan="3">Car result</td>
+ 			<td>Car results</td>
  		</tr>
- 		<?php foreach ($result as $key => $car) : ?>
+ 		<?php
+
+ 		 foreach ($result as $car) : ?>
  			<tr>
- 				<td><?php echo $car['carbrand'] ?></td>
- 				<td><?php echo $car['carmodel'] ?></td>
- 				<td><?php echo $car['price'] ?></td>
- 				<td><a href="carprofile/<?php echo $car['id'];?>"></a></td>
+ 				<td><?php echo $car['brand']; ?></td>
+ 				<td><?php echo $car['model']; ?></td>
+ 				<td><?php echo $car['price']; ?></td>
+ 				<td><a href="carprofile.php/<?php echo $car['id'];?>">view</a></td>
  			</tr>
  			
  		<?php endforeach; ?>

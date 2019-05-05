@@ -6,10 +6,12 @@
 class car extends database
 {
 	public $id;
-	public $carbrand;
-	public $carmodel;
-	public $cardate;
+	public $brand;
+	public $model;
+	public $noofseats;
+	public $milege;
 	public $price;
+	public $location_id;
 
 	function __construct()
 	{
@@ -18,13 +20,15 @@ class car extends database
 
 	function insert($data)
 	{
-		$stmt = $this->conn->prepare("INSERT INTO car (carbrand, carmodel, cardate,price) 
-    			VALUES (:carbrand, :carmodel, :cardate, :price)");
+		$stmt = $this->conn->prepare("INSERT INTO car (brand, model, noofseats, milege, price, location_id) 
+    			VALUES (:brand, :model, :noofseats, :milege, :price, :location_id)");
 
-		$stmt->bindParam(':carbrand', $data['carbrand']);
-		$stmt->bindParam(':carmodel', $data['carmodel']);
-		$stmt->bindParam(':cardate', $data['cardate']);
+		$stmt->bindParam(':brand', $data['brand']);
+		$stmt->bindParam(':model', $data['cmodel']);
+		$stmt->bindParam(':noofseats', $data['noofseats']);
+		$stmt->bindParam(':milege', $data['milege']);
 		$stmt->bindParam(':price', $data['price']);
+		$stmt->bindParam(':location_id', $data['location_id']);
 
 		$stmt->execute();
 	}
@@ -38,24 +42,26 @@ class car extends database
 		{
 			$data=$stmt->fetch();
 			$this->id=$data['id'];
-			$this->carbrand=$data['carbrand'];
-			$this->carmodel=$data['carmodel'];
-			$this->cardate=$data['cardate'];
+			$this->brand=$data['brand'];
+			$this->model=$data['model'];
+			$this->milege=$data['milege'];
 			$this->price=$data['price'];
 		}
 
 	}
-	function search($country,$from,$until)
+	function search($place,$from,$until)
 	{
-		$stmt=$this->conn->prepare("SELECT * from car where country like :country");
-		$stmt->bindParam(':country',$country);
+		$stmt=$this->conn->prepare("SELECT * from car inner join location on car.location_id=location.id where location.place like '%".$place."%'");
+		$stmt->bindParam(':place',$place);
 		$stmt->execute();
+
+		
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		if($stmt->rowcount()>0)
 		{
-			$data=$stmt->fetchall();
-			return $data;
+			return $stmt->fetchall();
+			
 		}
+		return false;
 	}
-
 }

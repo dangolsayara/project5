@@ -16,15 +16,15 @@
 		</tr>
 		<tr>
 			<td>model</td>
-			<td><?php echo $car->carmodel;?></td>
+			<td><?php echo $car->model;?></td>
 		</tr>
 		<tr>
 			<td>Brand</td>
-			<td><?php echo $car->carbrand; ?></td>
+			<td><?php echo $car->brand; ?></td>
 		</tr>
 		<tr>
 			<td>Release Date</td>
-			<td><?php echo $car->cardate; ?></td>
+			<td><?php echo $car->milege; ?></td>
 		</tr>
 		<tr>
 			<td>Price</td>
