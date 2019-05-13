@@ -172,7 +172,7 @@
                         <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
                             <div class="featured-place-wrap">
                                 <a href="carprofile.php?id=<?php echo $car['id'];?>">
-                                    <img src="asset/images/featured2.jpg" class="img-fluid" alt="#">
+                                    <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=http%3A%2F%2Fcdni.autocarindia.com%2FGalleries%2F20190510045325_Audi-R8_Coupe-2019-1.jpg&h=300&w=450&c=1" class="img-fluid" alt="#">
                                     <span class="featured-rating-green"><?php echo $car['price']; ?></span>
                                     <div class="featured-title-box">
                                         <h6>Joe’s Shanghai <?php echo $car['model']; ?></h6>
