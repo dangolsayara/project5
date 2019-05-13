@@ -1,10 +1,10 @@
 <?php
 include 'model/session.php';
-
+$session=new session();
 
 include 'layout/header.php';
-include 'layout/navbar.php';
-$session=new session();
+
+
 
 ?>
 <!--
@@ -68,6 +68,68 @@ $session=new session();
 
 
 
+<body>
+    <!--============================= HEADER =============================-->
+    <div class="nav-menu">
+        <div class="bg transition">
+            <div class="container-fluid fixed">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="index.html">Listing</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-menu"></span>
+              </button>
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Explore
+                     <span class="icon-arrow-down"></span>
+                   </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Listing
+                    <span class="icon-arrow-down"></span>
+                  </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pages
+                    <span class="icon-arrow-down"></span>
+                  </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Blog</a>
+                                    </li>
+                                    <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
  <!-- SLIDER -->
     <section class="slider d-flex align-items-center">
         <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
@@ -85,15 +147,15 @@ $session=new session();
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4">
+                                <form class="form-wrap mt-4" method="GET" action="search.php">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="What are your looking for?" class="btn-group1">
-                                        <input type="text" placeholder="New york" class="btn-group2">
-                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
+                                        <input type="text" placeholder="What are your looking for?" class="btn-group1" name="until">
+                                        <input type="text" placeholder="New york" class="btn-group2" name="place">
+                                        <button type="submit" class="btn-form" value="Submit"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
                                 <div class="slider-link">
-                                    <a href="#">Browse Popular</a><span>or</span> <a href="#">Recently Addred</a>
+                                    <a href="#">Browse Popular</a><span>or</span> <a href="#">Recently Added</a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +181,7 @@ $session=new session();
                     <div class="find-place-img_wrap">
                         <div class="grid">
                             <figure class="effect-ruby">
-                                <img src="images/find-place1.jpg" class="img-fluid" alt="img13" />
+                                <img src="asset/images/find-place1.jpg" class="img-fluid" alt="img13" />
                                 <figcaption>
                                     <h5>Nightlife </h5>
                                     <p>385 Listings</p>
@@ -134,7 +196,7 @@ $session=new session();
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="images/find-place2.jpg" class="img-fluid" alt="img13" />
+                                        <img src="asset/images/find-place2.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Restaurants</h5>
                                             <p>210 Listings</p>
@@ -149,7 +211,7 @@ $session=new session();
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="images/find-place3.jpg" class="img-fluid" alt="img13" />
+                                        <img src="asset/images/find-place3.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Outdoors </h5>
                                             <p>114 Listings</p>
@@ -166,7 +228,7 @@ $session=new session();
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="images/find-place4.jpg" class="img-fluid" alt="img13" />
+                                        <img src="asset/images/find-place4.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Hotels </h5>
                                             <p>577 Listings</p>
@@ -181,7 +243,7 @@ $session=new session();
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="images/find-place5.jpg" class="img-fluid" alt="img13" />
+                                        <img src="asset/images/find-place5.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Art & Culture </h5>
                                             <p>79 Listings</p>
@@ -210,7 +272,7 @@ $session=new session();
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="detail.html">
-                            <img src="images/featured1.jpg" class="img-fluid" alt="#">
+                            <img src="asset/images/featured1.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating-orange">6.5</span>
                             <div class="featured-title-box">
                                 <h6>Burger & Lobster</h6>
@@ -241,7 +303,7 @@ $session=new session();
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="detail.html">
-                            <img src="images/featured2.jpg" class="img-fluid" alt="#">
+                            <img src="asset/images/featured2.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating-green">9.5</span>
                             <div class="featured-title-box">
                                 <h6>Joe’s Shanghai</h6>
@@ -272,7 +334,7 @@ $session=new session();
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="detail.html">
-                            <img src="images/featured3.jpg" class="img-fluid" alt="#">
+                            <img src="asset/images/featured3.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating">3.2</span>
                             <div class="featured-title-box">
                                 <h6>Tasty Hand-Pulled Noodles</h6>
@@ -520,3 +582,22 @@ $session=new session();
 include 'layout/footer.php'; 
 
 ?>
+
+    <script>
+        $(window).scroll(function() {
+            // 100 = The point you would like to fade the nav in.
+
+            if ($(window).scrollTop() > 100) {
+
+                $('.fixed').addClass('is-sticky');
+
+            } else {
+
+                $('.fixed').removeClass('is-sticky');
+
+            };
+        });
+    </script>
+</body>
+
+</html>
