@@ -26,11 +26,12 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Car listing</title>
 </head>
 <body>
 	<form method="POST">
 		<table border="2">
+
 			<tr>
 				<td>Vehicle Id</td>
 				<td><input type="text" name="vehicle_id"></td>
