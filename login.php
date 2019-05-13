@@ -4,7 +4,11 @@
 	$login=new login();
 	if($login->userlogindetail($_POST))
 	{
-		
+		header('location:userprofile.php');
+	}
+	else
+	{
+		echo "invalid username or password";
 	}
 
 	
@@ -17,8 +21,11 @@
 	<title>login</title>
 </head>
 <body>
-	<table>
+	<table border="1">
 		<form method="POST">
+			<tr>
+				<td colspan="2"><h1>User Login</h1></td>
+			</tr>
 			<tr>
 				<td>User Name</td>
 				<td><input type="text" name="email"></td>
@@ -26,6 +33,9 @@
 			<tr>
 				<td>Password</td>
 				<td><input type="text" name="password"></td>
+			</tr>
+			<tr>
+				<td><input type="submit"></td>
 			</tr>
 		</form>
 	</table>

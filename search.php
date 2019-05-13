@@ -53,7 +53,7 @@
  				<td><?php echo $car['brand']; ?></td>
  				<td><?php echo $car['model']; ?></td>
  				<td><?php echo $car['price']; ?></td>
- 				<td><a href="carprofile.php/<?php echo $car['id'];?>">view</a></td>
+ 				<td><a href="carprofile.php?id=<?php echo $car['id'];?>">view</a></td>
  			</tr>
  			
  		<?php endforeach; ?>

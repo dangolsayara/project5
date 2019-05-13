@@ -4,13 +4,15 @@
 
 	class login extends database
 	{
+		public $id;
 		public $email;
 		public $password;
 
 		public function userlogindetail($data)
 		{
-			$data['password'] = md5($data['password']);
-  			$stmt = $conn->prepare("SELECT * FROM user WHERE email=:email AND password=:password");
+			session_start();
+			//$data['password'] = md5($data['password']);
+  			$stmt = $this->conn->prepare("SELECT * FROM user WHERE email=:email AND password=:password");
     		$stmt->bindparam (':email',$data['email']);
     		$stmt->bindparam(':password',$data['password']);
    
@@ -22,7 +24,7 @@
                 	$info= $stmt->fetch();
                 	$_SESSION['id']=$info['id'];
     	         	$_SESSION['email']=$info['email'];
-    	          	$_SESSION['role']=$info['role'];
+    	          	
            			return true;
     			}
     	

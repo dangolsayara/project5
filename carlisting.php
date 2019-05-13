@@ -2,11 +2,25 @@
 
 //not a car list page ,, listing make your car available for rent
 include 'model/car.php';
+include 'model/session.php';
+
+$session=new session();
+
+if ($session->status==true) 
+{
 	if (isset($_POST['sbmtbtn'])) 
 	{
 		$car=new car();
-		$car->insert($_POST);
+		$car->listing($_POST);
 	}
+}
+else
+{
+	header('location:login.php');
+}
+
+
+	
 ?>
 
 <!DOCTYPE html>
@@ -16,24 +30,24 @@ include 'model/car.php';
 </head>
 <body>
 	<form method="POST">
-		<table border="4">
+		<table border="2">
 			<tr>
-				<td>carbrand</td>
-				<td><input type="text" name="carbrand"></td>
+				<td>Vehicle Id</td>
+				<td><input type="text" name="vehicle_id"></td>
+			</tr>
+			<tr>
+				<td>Available From</td>
+				<td><input type="date" name="available_from"></td>
 			</tr>
 			<tr> 
-				<td>carmodel</td>
-				<td><input type="text" name="carmodel"></td>
+				<td>Avaible Until</td>
+				<td><input type="date " name="available_until"></td>
 			</tr>
 			<tr>
-				<td>cardate</td>
-				<td><input type="text" name="cardate"></td>
+				<td>User Id</td>
+				<td><input type="text" name="user_id"></td>
 			</tr>
-			<tr>
-				<td>price</td>
-				<td><input type="text" name="price"></td>
-			</tr>
-			<tr>
+			<tr> 
 				<td><input type="submit" name="sbmtbtn"></td>
 			</tr>
 		</table>
