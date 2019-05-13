@@ -21,6 +21,19 @@
     <link rel="stylesheet" href="asset/css/themify-icons.css">
     <!-- Hover Effects -->
     <link rel="stylesheet" href="asset/css/set1.css">
-    <!-- Main CSS -->
+    
+
+
+        <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="asset/css/form/all-type-forms.css">
+    <!-- style CSS (kialaap)
+        ============================================ -->
+    <link rel="stylesheet" href="asset/css/kstyle.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="asset/css/responsive.css">
+
+    <!-- Main CSS (listing)-->
     <link rel="stylesheet" href="asset/css/style.css">
 </head>

@@ -44,11 +44,11 @@
                                         <a class="dropdown-item" href="#">Something else here</a>
                                     </div>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">About</a>
-                                </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="login.php">Login</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="userregister.php">Register</a>
                                 </li>
                                 <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
                             </ul>
