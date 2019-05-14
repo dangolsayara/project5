@@ -1,7 +1,7 @@
 <?php
 	include 'model/user.php';
 	$user=new user();
-	if ($_POST['sbmtbtn']) 
+	if (isset($_POST['sbmtbtn'])) 
 	{
 		$user->insert($_POST);
 	}
@@ -49,7 +49,8 @@ include 'layout/header.php';
 include 'layout/navbar.php';
 ?>
 
- <section id="main-content">
+ <section id="main-content" class="booking-details_wrap">
+
           <section class="wrapper">
 		  <div class="row">
 				<div class="col-lg-12">
