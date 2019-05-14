@@ -1,6 +1,6 @@
 <?php
 	include 'database/Database.php';
-	include 'model/location.php';
+	//include 'model/location.php';
 	/**
 	 * 
 	 */

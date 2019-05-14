@@ -181,7 +181,7 @@ include 'layout/header.php';
                     <div class="find-place-img_wrap">
                         <div class="grid">
                             <figure class="effect-ruby">
-                                <img src="asset/images/find-place1.jpg" class="img-fluid" alt="img13" />
+                                <img src="style/img/find-place1.jpg" class="img-fluid" alt="img13" />
                                 <figcaption>
                                     <h5>Nightlife </h5>
                                     <p>385 Listings</p>
@@ -196,7 +196,7 @@ include 'layout/header.php';
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="asset/images/find-place2.jpg" class="img-fluid" alt="img13" />
+                                        <img src="style/img/find-place2.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Restaurants</h5>
                                             <p>210 Listings</p>
@@ -211,7 +211,7 @@ include 'layout/header.php';
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="asset/images/find-place3.jpg" class="img-fluid" alt="img13" />
+                                        <img src="style/img/find-place3.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Outdoors </h5>
                                             <p>114 Listings</p>
@@ -228,7 +228,7 @@ include 'layout/header.php';
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="asset/images/find-place4.jpg" class="img-fluid" alt="img13" />
+                                        <img src="style/img/find-place4.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Hotels </h5>
                                             <p>577 Listings</p>
@@ -243,7 +243,7 @@ include 'layout/header.php';
                             <div class="find-place-img_wrap">
                                 <div class="grid">
                                     <figure class="effect-ruby">
-                                        <img src="asset/images/find-place5.jpg" class="img-fluid" alt="img13" />
+                                        <img src="style/img/find-place5.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Art & Culture </h5>
                                             <p>79 Listings</p>
@@ -272,7 +272,7 @@ include 'layout/header.php';
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="detail.html">
-                            <img src="asset/images/featured1.jpg" class="img-fluid" alt="#">
+                            <img src="style/img/featured1.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating-orange">6.5</span>
                             <div class="featured-title-box">
                                 <h6>Burger & Lobster</h6>
@@ -303,7 +303,7 @@ include 'layout/header.php';
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="detail.html">
-                            <img src="asset/images/featured2.jpg" class="img-fluid" alt="#">
+                            <img src="style/img/featured2.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating-green">9.5</span>
                             <div class="featured-title-box">
                                 <h6>Joe’s Shanghai</h6>
@@ -334,7 +334,7 @@ include 'layout/header.php';
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="detail.html">
-                            <img src="asset/images/featured3.jpg" class="img-fluid" alt="#">
+                            <img src="style/img/featured3.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating">3.2</span>
                             <div class="featured-title-box">
                                 <h6>Tasty Hand-Pulled Noodles</h6>
