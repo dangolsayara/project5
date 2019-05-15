@@ -3,8 +3,9 @@ include 'database/Database.php';
 /**
  * 
  */
-class location extends database
+class location
 {
+	private $conn;
 	public $id;
 	public $place;
 

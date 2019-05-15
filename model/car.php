@@ -1,22 +1,16 @@
 <?php
 	include 'database/Database.php';
-//	include 'model/location.php';
+	include 'model/location.php';
 /**
  * 
  */
-class car extends database
+class car 
 {
-	public $id;
-	public $brand;
-	public $model;
-	public $noofseats;
-	public $milege;
-	public $price;
-	public $location_id;
+	private $conn;
 
 	function __construct()
 	{
-		parent::__construct();
+		$this->conn=new database();
 	}
 
 	function insert($data)
