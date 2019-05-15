@@ -47,21 +47,13 @@ include 'layout/header.php';
 
 		</tr>
 		<tr>
-			<td><?php
-					require 'layout/youmightlike.php';
-					?>
-			</td>
+		
 		</tr>
 		<tr>
 			<td>Top destinations</td>
 		</tr>
 		<tr>
-			<td><?php
-					require 'layout/topdestination.php'
-					?>
-						
-					</td>
-		</tr>
+	
 	</table>
 </body>
 </html>-->

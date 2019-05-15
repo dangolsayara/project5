@@ -49,357 +49,565 @@
 -->
 
 <?php 
-include 'layout/header.php';
-include 'layout/navbar.php';
+include 'layout/headerback.php';
+include 'layout/sidebarback.php';
 ?>
- <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-		  <div class="row">
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-user-md"></i> Profile</h3>
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						<li><i class="icon_documents_alt"></i>Pages</li>
-						<li><i class="fa fa-user-md"></i>Profile</li>
-					</ol>
-				</div>
-			</div>
-              <div class="row">
-                <!-- profile-widget -->
-                <div class="col-lg-12">
-                    <div class="profile-widget profile-widget-info">
-                          <div class="panel-body">
-                            <div class="col-lg-2 col-sm-2">
-                              <h4><?php echo $user->name; ?></h4>               
-                              <div class="follow-ava">
-                                  <img src="img/profile-widget-avatar.jpg" alt="">
-                              </div>
-                              <h6>Administrator</h6>
-                            </div>
-                            <div class="col-lg-4 col-sm-4 follow-info">
-                                <p>Hello I’m Jenifer Smith, a leading expert in interactive and creative design.</p>
-                                <p>@jenifersmith</p>
-								<p><i class="fa fa-twitter">jenifertweet</i></p>
-                                <h6>
-                                    <span><i class="icon_clock_alt"></i>11:05 AM</span>
-                                    <span><i class="icon_calendar"></i>25.10.13</span>
-                                    <span><i class="icon_pin_alt"></i>NY</span>
-                                </h6>
-                            </div>
-                            <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                      <ul>
-                                          <li class="active">
-                                              
-                                              <i class="fa fa-comments fa-2x"> </i><br>
-											  
-											  Contrary to popular belief, Lorem Ipsum is not simply
-                                          </li>
-										   
-                                      </ul>
-                            </div>
-							<div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                      <ul>
-                                          <li class="active">
-                                              
-                                              <i class="fa fa-bell fa-2x"> </i><br>
-											  
-											  Contrary to popular belief, Lorem Ipsum is not simply 
-                                          </li>
-										   
-                                      </ul>
-                            </div>
-							<div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                      <ul>
-                                          <li class="active">
-                                              
-                                              <i class="fa fa-tachometer fa-2x"> </i><br>
-											  
-											  Contrary to popular belief, Lorem Ipsum is not simply
-                                          </li>
-										   
-                                      </ul>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-              </div>
-              <!-- page start-->
-              <div class="row">
-                 <div class="col-lg-12">
-                    <section class="panel">
-                          <header class="panel-heading tab-bg-info">
-                              <ul class="nav nav-tabs">
-                                  <li class="active">
-                                      <a data-toggle="tab" href="#recent-activity">
-                                          <i class="icon-home"></i>
-                                          Daily Activity
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a data-toggle="tab" href="#profile">
-                                          <i class="icon-user"></i>
-                                          Profile
-                                      </a>
-                                  </li>
-                                  <li class="">
-                                      <a data-toggle="tab" href="#edit-profile">
-                                          <i class="icon-envelope"></i>
-                                          Edit Profile
-                                      </a>
-                                  </li>
-                              </ul>
-                          </header>
-                          <div class="panel-body">
-                              <div class="tab-content">
-                                  <div id="recent-activity" class="tab-pane active">
-                                      <div class="profile-activity">                                          
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Jonatanh Doe</a> at 4:25pm, 30th Octmber 2014</p>
-                                                      <p>It is a long established fact that a reader will be distracted layout</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Jhon Loves </a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Knowledge speaks, but wisdom listens.</p>                                                      
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Rose Crack</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Jimy Smith</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Maria Willyam</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Sarah saw</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Knowledge speaks, but wisdom listens.</p>                                                      
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Layla night</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Andriana lee</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Maria Willyam</a> at 5:25am, 30th Octmber 2014</p>
-                                                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                                                  </div>
-                                              </div>
-                                          </div>
+ 	    <!-- ============================================================== -->
+	    <!-- wrapper  -->
+	    <!-- ============================================================== -->
+	    <div class="dashboard-wrapper">
+	        <div class="dashboard-influence">
+	            <div class="container-fluid dashboard-content">
+	                <!-- ============================================================== -->
+	                <!-- pageheader  -->
+	                <!-- ============================================================== -->
+	                <div class="row">
+	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+	                        <div class="page-header">
+	                            <h3 class="mb-2">Infulencer Dashboard Template </h3>
+	                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+	                            <div class="page-breadcrumb">
+	                                <nav aria-label="breadcrumb">
+	                                    <ol class="breadcrumb">
+	                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+	                                        <li class="breadcrumb-item active" aria-current="page">Influencer Dashboard Template</li>
+	                                    </ol>
+	                                </nav>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <!-- ============================================================== -->
+	                <!-- end pageheader  -->
+	                <!-- ============================================================== -->
+	                <!-- ============================================================== -->
+	                <!-- content  -->
+	                <!-- ============================================================== -->
+	                <!-- ============================================================== -->
+	                <!-- influencer profile  -->
+	                <!-- ============================================================== -->
+	                <div class="row">
+	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+	                        <div class="card influencer-profile-data">
+	                            <div class="card-body">
+	                                <div class="row">
+	                                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-12">
+	                                        <div class="text-center">
+	                                            <img src="assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+	                                            </div>
+	                                        </div>
+	                                        <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-12">
+	                                            <div class="user-avatar-info">
+	                                                <div class="m-b-20">
+	                                                    <div class="user-avatar-name">
+	                                                        <h2 class="mb-1">Henry Barbara</h2>
+	                                                    </div>
+	                                                    <div class="rating-star  d-inline-block">
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <i class="fa fa-fw fa-star"></i>
+	                                                        <p class="d-inline-block text-dark">14 Reviews </p>
+	                                                    </div>
+	                                                </div>
+	                                                <!--  <div class="float-right"><a href="#" class="user-avatar-email text-secondary">www.henrybarbara.com</a></div> -->
+	                                                <div class="user-avatar-address">
+	                                                    <p class="border-bottom pb-3">
+	                                                        <span class="d-xl-inline-block d-block mb-2"><i class="fa fa-map-marker-alt mr-2 text-primary "></i>4045 Denver AvenueLos Angeles, CA 90017</span>
+	                                                        <span class="mb-2 ml-xl-4 d-xl-inline-block d-block">Joined date: 23 June, 2018  </span>
+	                                                        <span class=" mb-2 d-xl-inline-block d-block ml-xl-4">Male 
+	                                                                </span>
+	                                                        <span class=" mb-2 d-xl-inline-block d-block ml-xl-4">29 Year Old </span>
+	                                                    </p>
+	                                                    <div class="mt-3">
+	                                                        <a href="#" class="badge badge-light mr-1">Fitness</a> <a href="#" class="badge badge-light mr-1">Life Style</a> <a href="#" class="badge badge-light">Gym</a>
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="border-top user-social-box">
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span></div>
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2  pinterest-color"> <i class="fab fa-pinterest-square"></i></span><span>84,019</span></div>
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2  facebook-color"> <i class="fab fa-facebook-square "></i></span><span>92,920</span></div>
+	                                    <div class="user-social-media d-xl-inline-block "><span class="mr-2 medium-color"> <i class="fab fa-medium"></i></span><span>291</span></div>
+	                                    <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- ============================================================== -->
+	                    <!-- end influencer profile  -->
+	                    <!-- ============================================================== -->
+	                    <!-- ============================================================== -->
+	                    <!-- widgets   -->
+	                    <!-- ============================================================== -->
+	                    <div class="row">
+	                        <!-- ============================================================== -->
+	                        <!-- four widgets   -->
+	                        <!-- ============================================================== -->
+	                        <!-- ============================================================== -->
+	                        <!-- total views   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Total Views</h5>
+	                                        <h2 class="mb-0"> 10,28,056</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-info-light mt-1">
+	                                        <i class="fa fa-eye fa-fw fa-sm text-info"></i>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end total views   -->
+	                        <!-- ============================================================== -->
+	                        <!-- ============================================================== -->
+	                        <!-- total followers   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Total Followers</h5>
+	                                        <h2 class="mb-0"> 24,763</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
+	                                        <i class="fa fa-user fa-fw fa-sm text-primary"></i>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end total followers   -->
+	                        <!-- ============================================================== -->
+	                        <!-- ============================================================== -->
+	                        <!-- partnerships   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Partnerships</h5>
+	                                        <h2 class="mb-0">14</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+	                                        <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end partnerships   -->
+	                        <!-- ============================================================== -->
+	                        <!-- ============================================================== -->
+	                        <!-- total earned   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <div class="card-body">
+	                                    <div class="d-inline-block">
+	                                        <h5 class="text-muted">Total Earned</h5>
+	                                        <h2 class="mb-0"> $149.00</h2>
+	                                    </div>
+	                                    <div class="float-right icon-circle-medium  icon-box-lg  bg-brand-light mt-1">
+	                                        <i class="fa fa-money-bill-alt fa-fw fa-sm text-brand"></i>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end total earned   -->
+	                        <!-- ============================================================== -->
+	                    </div>
+	                    <!-- ============================================================== -->
+	                    <!-- end widgets   -->
+	                    <!-- ============================================================== -->
+	                    <div class="row">
+	                        <!-- ============================================================== -->
+	                        <!-- followers by gender   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <h5 class="card-header">Followers by Gender</h5>
+	                                <div class="card-body">
+	                                    <div id="gender_donut" style="height: 230px;"></div>
+	                                </div>
+	                                <div class="card-footer p-0 bg-white d-flex">
+	                                    <div class="card-footer-item card-footer-item-bordered w-50">
+	                                        <h2 class="mb-0"> 60% </h2>
+	                                        <p>Female </p>
+	                                    </div>
+	                                    <div class="card-footer-item card-footer-item-bordered">
+	                                        <h2 class="mb-0">40% </h2>
+	                                        <p>Male </p>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end followers by gender  -->
+	                        <!-- ============================================================== -->
+	                        <!-- ============================================================== -->
+	                        <!-- followers by age   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <h5 class="card-header">Followers by Age</h5>
+	                                <div class="card-body">
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">15 - 20</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 45%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">20 - 25</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 55%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">25 - 30</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">30 - 35</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 35%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">35 - 40</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 21%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">45 - 50</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 85%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="mb-3">
+	                                        <div class="d-inline-block">
+	                                            <h4 class="mb-0">50 - 55</h4>
+	                                        </div>
+	                                        <div class="progress mt-2 float-right progress-md">
+	                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end followers by age   -->
+	                        <!-- ============================================================== -->
+	                        <!-- ============================================================== -->
+	                        <!-- followers by locations   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-xl-5 col-lg-12 col-md-6 col-sm-12 col-12">
+	                            <div class="card">
+	                                <h5 class="card-header">Top Folllowes by Locations </h5>
+	                                <div class="card-body">
+	                                    <canvas id="chartjs_bar_horizontal"></canvas>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end followers by locations  -->
+	                        <!-- ============================================================== -->
+	                    </div>
+	                    <div class="row">
+	                        <!-- ============================================================== -->
+	                        <!-- campaign activities   -->
+	                        <!-- ============================================================== -->
+	                        <div class="col-lg-12">
+	                            <div class="section-block">
+	                                <h3 class="section-title">My Active Campaigns</h3>
+	                            </div>
+	                            <div class="card">
+	                                <div class="campaign-table table-responsive">
+	                                    <table class="table">
+	                                        <thead>
+	                                            <tr class="border-0">
+	                                                <th class="border-0">Company</th>
+	                                                <th class="border-0">Campaign Name</th>
+	                                                <th class="border-0">Social Platform</th>
+	                                                <th class="border-0">Min / Max Views</th>
+	                                                <th class="border-0">Status</th>
+	                                                <th class="border-0">Start Date</th>
+	                                                <th class="border-0">Action</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <tr>
+	                                                <td>
+	                                                    <div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div>
+	                                                </td>
+	                                                <td>Fashion E Commerce </td>
+	                                                <td>
+	                                                    <div class="avatar-group">
+	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
+	                                                        <span><a href="#"><i class="fab fa-fw fa-twitter-square twitter-color"></i></a></span>
+	                                                        <span><a href="#"><i class="fab fa-fw fa-instagram instagram-color"></i></a></span>
+	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
+	                                                    </div>
+	                                                </td>
+	                                                <td>1,00,000 / 1,50,000</td>
+	                                                <td>70%</td>
+	                                                <td>7 Aug,2018</td>
+	                                                <td>
+	                                                    <div class="dropdown float-right">
+	                                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="true">
+	                                                                <i class="mdi mdi-dots-vertical"></i>
+	                                                                     </a>
+	                                                        <div class="dropdown-menu dropdown-menu-right">
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+	                                                        </div>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>
+	                                                    <div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div>
+	                                                </td>
+	                                                <td>Fitness Products </td>
+	                                                <td>
+	                                                    <div class="avatar-group">
+	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
+	                                                        <span><a href="#"><i class="fab fa-fw fa-twitter-square twitter-color "></i></a></span>
+	                                                    </div>
+	                                                </td>
+	                                                <td>2,50,000 / 3,50,000</td>
+	                                                <td>70%</td>
+	                                                <td>10 Aug,2018</td>
+	                                                <td>
+	                                                    <div class="dropdown float-right">
+	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
+	                                            <i class="mdi mdi-dots-vertical"></i>
+	                                        </a>
+	                                                        <div class="dropdown-menu dropdown-menu-right">
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+	                                                        </div>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>
+	                                                    <div class="m-r-10"><img src="assets/images/dropbox.png" alt="user" width="35"></div>
+	                                                </td>
+	                                                <td>Gym Trainer Program </td>
+	                                                <td>
+	                                                    <div class="avatar-group">
+	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
+	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color "></i></a></span>
+	                                                    </div>
+	                                                </td>
+	                                                <td>3,50,000 / 4,50,000</td>
+	                                                <td>70%</td>
+	                                                <td>22 Aug,2018</td>
+	                                                <td>
+	                                                    <div class="dropdown float-right">
+	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
+	                                            <i class="mdi mdi-dots-vertical"></i>
+	                                        </a>
+	                                                        <div class="dropdown-menu dropdown-menu-right">
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+	                                                        </div>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>
+	                                                    <div class="m-r-10"><img src="assets/images/bitbucket.png" alt="user" width="30"></div>
+	                                                </td>
+	                                                <td>2018 Top Product </td>
+	                                                <td>
+	                                                    <div class="avatar-group">
+	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
+	                                                    </div>
+	                                                </td>
+	                                                <td>4,50,000 / 5,50,000</td>
+	                                                <td>70%</td>
+	                                                <td>25 Aug,2018</td>
+	                                                <td>
+	                                                    <div class="dropdown float-right">
+	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
+	                                            <i class="mdi mdi-dots-vertical"></i>
+	                                        </a>
+	                                                        <div class="dropdown-menu dropdown-menu-right">
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+	                                                        </div>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	                                            <tr>
+	                                                <td>
+	                                                    <div class="m-r-10"><img src="assets/images/mail_chimp.png" alt="user" width="30"></div>
+	                                                </td>
+	                                                <td>Top Dashboard Sale 2018</td>
+	                                                <td>
+	                                                    <div class="avatar-group">
+	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
+	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
+	                                                    </div>
+	                                                </td>
+	                                                <td>5,50,000 / 6,50,000</td>
+	                                                <td>70%</td>
+	                                                <td>27 Aug,2018</td>
+	                                                <td>
+	                                                    <div class="dropdown float-right">
+	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
+	                                            <i class="mdi mdi-dots-vertical"></i>
+	                                        </a>
+	                                                        <div class="dropdown-menu dropdown-menu-right">
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+	                                                            <!-- item-->
+	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+	                                                        </div>
+	                                                    </div>
+	                                                </td>
+	                                            </tr>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end campaign activities   -->
+	                        <!-- ============================================================== -->
+	                    </div>
+	                    <!-- ============================================================== -->
+	                    <!-- recommended campaigns   -->
+	                    <!-- ============================================================== -->
+	                    <div class="row">
+	                        <div class="col-lg-12">
+	                            <div class="section-block">
+	                                <h3 class="section-title">Recommended Campaigns</h3>
+	                            </div>
+	                        </div>
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div class="campaign-img"><img src="assets/images/dribbble.png" alt="user" class="user-avatar-xl"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1">Campaigns Name</h3>
+	                                            <p class="mb-3">Vestibulum porttitor laoreet faucibus.</p>
+	                                            <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">2,50,000</span></p>
+	                                            <p>Payout: <span class="text-dark font-medium ml-2">$22</span></p>
+	                                            <a href="#"><i class="fab fa-twitter-square fa-sm twitter-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                                <div class="card campaign-card text-center">
+	                                    <div class="card-body">
+	                                        <div class="campaign-img"><img src="assets/images/github.png" alt="user" class=" user-avatar-xl"></div>
+	                                            <div class="campaign-info">
+	                                                <h3 class="mb-1">Campaigns Name</h3>
+	                                                <p class="mb-3">Lorem ipsum dolor sit ament</p>
+	                                                <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">1,00,000</span></p>
+	                                                <p>Payout: <span class="text-dark font-medium ml-2">$28</span></p>
+	                                                <a href="#"><i class="fab fa-instagram fa-sm instagram-color"></i> </a><a href="#"><i class="fab fa-facebook-square fa-sm facebook-color"></i></a>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                                    <div class="card campaign-card text-center">
+	                                        <div class="card-body">
+	                                            <div class="campaign-img"><img src="assets/images/slack.png" alt="user" class="user-avatar-xl"></div>
+	                                                <div class="campaign-info">
+	                                                    <h3 class="mb-1">Campaigns Name</h3>
+	                                                    <p class="mb-3">Maecenas mattis tempor libero pretium.</p>
+	                                                    <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">3,80,000</span></p>
+	                                                    <p>Payout: <span class="text-dark font-medium ml-2">$36</span></p>
+	                                                    <a href="#"><i class="fab fa-facebook-square fa-sm facebook-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                                        <div class="card campaign-card text-center">
+	                                            <div class="card-body">
+	                                                <div class="campaign-img"><img src="assets/images/mail_chimp.png" alt="user" class="user-avatar-xl"></div>
+	                                                    <div class="campaign-info">
+	                                                        <h3 class="mb-1">Campaigns Name</h3>
+	                                                        <p class="mb-3">Proin vitae lacinia leo</p>
+	                                                        <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">4,50,000</span></p>
+	                                                        <p>Payout: <span class="text-dark font-medium ml-2">$57</span></p>
+	                                                        <a href="#"><i class="fab fa-twitter-square fa-sm twitter-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
+	                                                        <a href="#"><i class="fab fa-facebook-square fa-sm facebook-color"></i></a>
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <!-- ============================================================== -->
+	                                    <!-- end recommended campaigns   -->
+	                                    <!-- ============================================================== -->
+	                                    <!-- ============================================================== -->
+	                                    <!-- end content  -->
+	                                    <!-- ============================================================== -->
+	                                </div>
+	                            </div>
 
-                                      </div>
-                                  </div>
-                                  <!-- profile -->
-                                  <div id="profile" class="tab-pane">
-                                    <section class="panel">
-                                      <div class="bio-graph-heading">
-                                                Hello I’m Jenifer Smith, a leading expert in interactive and creative design specializing in the mobile medium. My graduation from Massey University with a Bachelor of Design majoring in visual communication.
-                                      </div>
-                                      <div class="panel-body bio-graph-info">
-                                          <h1>Bio Graph</h1>
-                                          <div class="row">
-                                              <div class="bio-row">
-                                                  <p><span>First Name </span>: Jenifer </p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Last Name </span>: Smith</p>
-                                              </div>                                              
-                                              <div class="bio-row">
-                                                  <p><span>Birthday</span>: 27 August 1987</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Country </span>: United</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Occupation </span>: UI Designer</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Email </span>:jenifer@mailname.com</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Mobile </span>: (+6283) 456 789</p>
-                                              </div>
-                                              <div class="bio-row">
-                                                  <p><span>Phone </span>:  (+021) 956 789123</p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                    </section>
-                                      <section>
-                                          <div class="row">                                              
-                                          </div>
-                                      </section>
-                                  </div>
-                                  <!-- edit-profile -->
-                                  <div id="edit-profile" class="tab-pane">
-                                    <section class="panel">                                          
-                                          <div class="panel-body bio-graph-info">
-                                              <h1> Profile Info</h1>
-                                              <form class="form-horizontal" role="form">                                                  
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">First Name</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="f-name" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Last Name</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="l-name" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">About Me</label>
-                                                      <div class="col-lg-10">
-                                                          <textarea name="" id="" class="form-control" cols="30" rows="5"></textarea>
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Country</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="c-name" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Birthday</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="b-day" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Occupation</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="occupation" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Email</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="email" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Mobile</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="mobile" placeholder=" ">
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Website URL</label>
-                                                      <div class="col-lg-6">
-                                                          <input type="text" class="form-control" id="url" placeholder="http://www.demowebsite.com ">
-                                                      </div>
-                                                  </div>
 
-                                                  <div class="form-group">
-                                                      <div class="col-lg-offset-2 col-lg-10">
-                                                          <button type="submit" class="btn btn-primary">Save</button>
-                                                          <button type="button" class="btn btn-danger">Cancel</button>
-                                                      </div>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </section>
-                                  </div>
-                              </div>
-                          </div>
-                      </section>
-                 </div>
-              </div>
-
-              <!-- page end-->
-          </section>
-      </section>
-      <!--main content end-->
-      <div class="text-right">
-            <div class="credits">
-                <!-- 
-                    All the links in the footer should remain intact. 
-                    You can delete the links only if you purchased the pro version.
-                    Licensing information: https://bootstrapmade.com/license/
-                    Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-                -->
-                <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-  </section>
-  <!-- container section end -->
-    <!-- javascripts -->
-    <script src="style/js/jquery.js"></script>
-    <script src="style/js/bootstrap.min.js"></script>
-    <!-- nice scroll -->
-    <script src="style/js/jquery.scrollTo.min.js"></script>
-    <script src="style/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <!-- jquery knob -->
-    <script src="style/assets/jquery-knob/js/jquery.knob.js"></script>
-    <!--custome script for all page-->
-    <script src="style/js/scripts.js"></script>
-
-  <script>
-
-      //knob
-      $(".knob").knob();
-
-  </script>
-
-
-  </body>
-</html>
+	<?php
+		include 'layout/footerback.php';
+	?>	                            

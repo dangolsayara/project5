@@ -9,27 +9,11 @@
     <meta name="author" content="Colorlib">
     <meta name="description" content="#">
     <meta name="keywords" content="#">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="#">
     <!-- Page Title -->
     <title>Listing &amp; Directory Website Template</title>
     <!-- Bootstrap CSS -->
- 
-
-   
-    <!--external css-->
-  
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="style/css/owl.carousel.css" type="text/css">
-    <link href="style/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="style/css/fullcalendar.css">
-    <link href="style/css/widgets.css" rel="stylesheet">
-    <link href="style/css/style.css" rel="stylesheet">
-    <link href="style/css/style-responsive.css" rel="stylesheet" />
-    <link href="style/css/xcharts.min.css" rel=" stylesheet"> 
-    <!--<link href="style/css/jquery-ui-1.10.4.min.css" rel="stylesheet">-->
-
-
-       <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="style/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
@@ -39,6 +23,10 @@
     <link rel="stylesheet" href="style/css/themify-icons.css">
     <!-- Hover Effects -->
     <link rel="stylesheet" href="style/css/set1.css">
+    <!-- Swipper Slider -->
+    <link rel="stylesheet" href="style/css/swiper.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="style/css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="style/css/liststyle.css">
+    <link rel="stylesheet" href="style/css/style.css">
 </head>
