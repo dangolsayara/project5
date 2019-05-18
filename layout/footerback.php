@@ -46,6 +46,4 @@
 	                    <script src="styleback/vendor/charts/charts-bundle/chartjs.js"></script>
 	                    <!-- dashboard js -->
 	                    <script src="styleback/libs/js/dashboard-influencer.js"></script>
-</body>
- 
-</html>
+	                    <script src="styleback/vendor/parsley/parsley.js"></script>

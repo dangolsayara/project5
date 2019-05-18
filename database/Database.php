@@ -10,8 +10,7 @@
 		private $pass=DB_PASS;
 		private $name=DB_NAME;
 
-		protected $conn;
-
+		private $conn;
 
 		function __construct()
 		{
@@ -19,4 +18,11 @@
 
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
+		public  function connection()
+		{
+			return $this->conn;
+		}
 	}
+
+	$database=new database();
+	?>

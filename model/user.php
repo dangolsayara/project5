@@ -1,22 +1,16 @@
 <?php
-	include 'database/Database.php';
+
 	//include 'model/location.php';
 	/**
 	 * 
 	 */
-	class user extends database
+	class user 
 	{
-		public $id;
-		public $name;
-		public $email;
-		public $password;
-		public $location_id;
-		public $location;
-		public $mobile;
-
+		private $conn;
 		function __construct()
 		{
-			parent::__construct();
+			$database=new database();
+			$this->conn=$database->connection();
 		}
 
 		function insert($data)
@@ -51,13 +45,8 @@
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			if($stmt->rowcount()>0)
 			{
-				$data=$stmt->fetch();
-				$this->name=$data['name'];
-				$this->email=$data['email'];
-				$this->location_id=$data['location_id'];
-				$this->mobile=$data['mobile'];
-				
-				return true;
+				$data=$stmt->fetch();	
+				return $data;
 			}
 			else 
 				return false;

@@ -1,14 +1,18 @@
 <?php
+	include 'database/Database.php';
 	include 'model/user.php';
+	include 'model/car.php';
 
 	session_start();
 	$id=$_SESSION['id'];
 
 
 	$user=new user();
+	$car=new car();
 
-
-	if(!$user->findbyid($id))
+	$data=$user->findbyid($id);
+	$cars=$car->findbyuserid($id);
+	if(empty($data))
 	{
 		//redirect "not found";
 		echo "not found";
@@ -100,7 +104,7 @@ include 'layout/sidebarback.php';
 	                                            <div class="user-avatar-info">
 	                                                <div class="m-b-20">
 	                                                    <div class="user-avatar-name">
-	                                                        <h2 class="mb-1">Henry Barbara</h2>
+	                                                        <h2 class="mb-1"><?php echo $data['name']; ?></h2>
 	                                                    </div>
 	                                                    <div class="rating-star  d-inline-block">
 	                                                        <i class="fa fa-fw fa-star"></i>
@@ -537,66 +541,28 @@ include 'layout/sidebarback.php';
 	                    <div class="row">
 	                        <div class="col-lg-12">
 	                            <div class="section-block">
-	                                <h3 class="section-title">Recommended Campaigns</h3>
+	                                <h3 class="section-title">Vehicles Owned</h3>
 	                            </div>
 	                        </div>
-	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+	                        <?php foreach ($cars as $owned) : ?>
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">              	
 	                            <div class="card campaign-card text-center">
 	                                <div class="card-body">
 	                                    <div class="campaign-img"><img src="assets/images/dribbble.png" alt="user" class="user-avatar-xl"></div>
 	                                        <div class="campaign-info">
-	                                            <h3 class="mb-1">Campaigns Name</h3>
+	                                            <h3 class="mb-1"><?php echo $owned['model']; ?></h3>
 	                                            <p class="mb-3">Vestibulum porttitor laoreet faucibus.</p>
 	                                            <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">2,50,000</span></p>
-	                                            <p>Payout: <span class="text-dark font-medium ml-2">$22</span></p>
+	                                            <p>Payout: <span class="text-dark font-medium ml-2">$<?php echo $owned['price'];?></span></p>
 	                                            <a href="#"><i class="fab fa-twitter-square fa-sm twitter-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
 	                                        </div>
 	                                    </div>
 	                                </div>
 	                            </div>
-	                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-	                                <div class="card campaign-card text-center">
-	                                    <div class="card-body">
-	                                        <div class="campaign-img"><img src="assets/images/github.png" alt="user" class=" user-avatar-xl"></div>
-	                                            <div class="campaign-info">
-	                                                <h3 class="mb-1">Campaigns Name</h3>
-	                                                <p class="mb-3">Lorem ipsum dolor sit ament</p>
-	                                                <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">1,00,000</span></p>
-	                                                <p>Payout: <span class="text-dark font-medium ml-2">$28</span></p>
-	                                                <a href="#"><i class="fab fa-instagram fa-sm instagram-color"></i> </a><a href="#"><i class="fab fa-facebook-square fa-sm facebook-color"></i></a>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-	                                    <div class="card campaign-card text-center">
-	                                        <div class="card-body">
-	                                            <div class="campaign-img"><img src="assets/images/slack.png" alt="user" class="user-avatar-xl"></div>
-	                                                <div class="campaign-info">
-	                                                    <h3 class="mb-1">Campaigns Name</h3>
-	                                                    <p class="mb-3">Maecenas mattis tempor libero pretium.</p>
-	                                                    <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">3,80,000</span></p>
-	                                                    <p>Payout: <span class="text-dark font-medium ml-2">$36</span></p>
-	                                                    <a href="#"><i class="fab fa-facebook-square fa-sm facebook-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
-	                                                </div>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-	                                        <div class="card campaign-card text-center">
-	                                            <div class="card-body">
-	                                                <div class="campaign-img"><img src="assets/images/mail_chimp.png" alt="user" class="user-avatar-xl"></div>
-	                                                    <div class="campaign-info">
-	                                                        <h3 class="mb-1">Campaigns Name</h3>
-	                                                        <p class="mb-3">Proin vitae lacinia leo</p>
-	                                                        <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">4,50,000</span></p>
-	                                                        <p>Payout: <span class="text-dark font-medium ml-2">$57</span></p>
-	                                                        <a href="#"><i class="fab fa-twitter-square fa-sm twitter-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
-	                                                        <a href="#"><i class="fab fa-facebook-square fa-sm facebook-color"></i></a>
-	                                                    </div>
-	                                                </div>
-	                                            </div>
-	                                        </div>
+
+	                        <?php endforeach ; ?>
+
+	                           
 	                                    </div>
 	                                    <!-- ============================================================== -->
 	                                    <!-- end recommended campaigns   -->
@@ -611,3 +577,5 @@ include 'layout/sidebarback.php';
 	<?php
 		include 'layout/footerback.php';
 	?>	                            
+</body>
+</html>

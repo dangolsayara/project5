@@ -11,7 +11,7 @@ class location
 
 	function __construct()
 	{
-		parent::__construct();
+		$this->conn=new database();
 	}
 
 	function insert($place)

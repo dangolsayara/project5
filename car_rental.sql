@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2019 at 11:36 AM
+-- Generation Time: May 18, 2019 at 08:57 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -36,16 +36,18 @@ CREATE TABLE `car` (
   `milege` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `display_image` varchar(255) NOT NULL,
-  `location_id` int(11) NOT NULL
+  `location` varchar(255) NOT NULL,
+  `owner_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `car`
 --
 
-INSERT INTO `car` (`id`, `model`, `brand`, `noofseats`, `milege`, `price`, `display_image`, `location_id`) VALUES
-(1, 'veriyon', 'Buggati', 2, 45, 100, 'carimage1.jpg', 1),
-(2, 'Ferrari', 'lamborgini', 2, 150, 400, 'carimage2.jpg', 1);
+INSERT INTO `car` (`id`, `model`, `brand`, `noofseats`, `milege`, `price`, `display_image`, `location`, `owner_id`) VALUES
+(1, 'veriyon', 'Buggati', 2, 45, 100, 'carimage1.jpg', '1', 0),
+(2, 'Ferrari', 'lamborgini', 2, 150, 400, 'carimage2.jpg', '1', 1),
+(3, 'mustang', 'ferari', 2, 50, 200, '', 'kathmandu,Nepal', 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +159,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `location`

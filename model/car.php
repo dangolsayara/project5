@@ -1,36 +1,31 @@
 <?php
-	include 'database/Database.php';
-	include 'model/location.php';
+
+//	include 'model/location.php';
 /**
  * 
  */
-class car 
+class car
 {
+	
 	private $conn;
-
 	function __construct()
 	{
-		$this->conn=new database();
+		$database=new database();
+		$this->conn=$database->connection();
 	}
 
 	function insert($data)
 	{
-		$location=new location();
-			$place_id=$location->locationid($data['place']);
-			if(empty($place_id))
-			{
-				$location->insert($data['place']);
-				$place_id=$location->locationid($data['place']);
-			}
-		$stmt = $this->conn->prepare("INSERT INTO car (brand, model, noofseats, milege, price, location_id) 
-    			VALUES (:brand, :model, :noofseats, :milege, :price, :location_id)");
+		
+		$stmt = $this->conn->prepare("INSERT INTO car (brand, model, noofseats, milege, price, location) 
+    			VALUES (:brand, :model, :noofseats, :milege, :price, :location)");
 
 		$stmt->bindParam(':brand', $data['brand']);
-		$stmt->bindParam(':model', $data['cmodel']);
+		$stmt->bindParam(':model', $data['model']);
 		$stmt->bindParam(':noofseats', $data['noofseats']);
 		$stmt->bindParam(':milege', $data['milege']);
 		$stmt->bindParam(':price', $data['price']);
-		$stmt->bindParam(':location_id', $place_id);
+		$stmt->bindParam(':location', $data['location']);
 
 		$stmt->execute();
 		return true;
@@ -82,5 +77,20 @@ class car
 		$stmt->bindParam(':user_id', $data['user_id']);
 
 		$stmt->execute();
+	}
+	function findbyuserid($id)
+	{
+		$stmt=$this->conn->prepare("SELECT * from car where owner_id=:id" );
+		$stmt->bindParam(':id',$id);
+		$stmt->execute();
+
+		
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		if($stmt->rowcount()>0)
+		{
+			return $stmt->fetchall();
+			
+		}
+		return false;
 	}
 }
