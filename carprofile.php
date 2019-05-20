@@ -20,7 +20,7 @@
     $user=new user();
     $data+=$user->findbyid($data['owner_id']);
 
-    $listing=new listing();
+      $listing=new listing();
     $availability=$listing->findbyvehicleid($data['id']);
 
 	if(!$data)
@@ -136,7 +136,14 @@
                         </div>
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="checkout.php?id=<?php echo $data['id'];?>" class="btn btn-danger">Checkout</a>
+                                <?php
+                                    if(!$availability) :?>
+                                        <a href="javascript:void(0)" class="btn btn-danger">Not Available</a>  
+                                
+                                    <?php
+                                else : ?>
+                                    <a href="checkout.php?id=<?php echo $data['id'];?>" class="btn btn-danger">Checkout</a>
+                             <?php endif ?>
                             </div>
                         </div>
                     </div>
@@ -265,9 +272,26 @@
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
                         <div class="address">
+                            <h6><u>Availability</u></h6>
+                            <ul>
                             <?php
-                                print_r($availability);
-                            ?>    
+                              
+                                if(!$availability)
+                                {
+                                    echo "This Car is not available for now";
+                                }
+                                else
+                                {
+                                    foreach ($availability as $date) 
+                                    {  
+                                    echo "<li>This car is available from '";                           
+                                    echo $date['available_from'];
+                                    echo "' until '";
+                                    echo $date['available_until']."'</li>";
+                                    }
+                                }
+                            ?>  
+                            </ul> 
                         </div>
                     </div>
                     <div class="contact-info">

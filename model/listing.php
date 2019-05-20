@@ -10,13 +10,14 @@
 
 	public function findbyvehicleid($id)
 	{
-		$stmt= $this->conn->prepare("SELECT * from listing where vehicle_id=:id");
+		$date=date('Y-m-d');
+		$stmt= $this->conn->prepare("SELECT * from listing where vehicle_id=:id and available_until>'$date' and checkout_status=0");
 		$stmt->bindParam(':id',$id);
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		if($stmt->rowcount()>0)
 		{
-			$data=$stmt->fetch();
+			$data=$stmt->fetchall();
 			return $data;
 		}
 		else 
