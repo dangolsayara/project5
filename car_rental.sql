@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2019 at 08:57 AM
+-- Generation Time: May 20, 2019 at 02:51 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -45,8 +45,8 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`id`, `model`, `brand`, `noofseats`, `milege`, `price`, `display_image`, `location`, `owner_id`) VALUES
-(1, 'veriyon', 'Buggati', 2, 45, 100, 'carimage1.jpg', '1', 0),
-(2, 'Ferrari', 'lamborgini', 2, 150, 400, 'carimage2.jpg', '1', 1),
+(1, 'veriyon', 'Buggati', 2, 45, 100, 'carimage1.jpg', 'bhaktapur,Nepal', 0),
+(2, 'Ferrari', 'lamborgini', 2, 150, 400, 'carimage2.jpg', 'Bhaktapur,Nepal', 1),
 (3, 'mustang', 'ferari', 2, 50, 200, '', 'kathmandu,Nepal', 1);
 
 -- --------------------------------------------------------
