@@ -4,6 +4,8 @@
 
     include 'database/Database.php';
 	include 'model/car.php';
+    include 'model/user.php';
+    include 'model/listing.php';
 
 
 	$id=$_GET['id'];
@@ -14,6 +16,12 @@
 
 	$car=new car();
     $data=$car->findbyid($id);
+
+    $user=new user();
+    $data+=$user->findbyid($data['owner_id']);
+
+    $listing=new listing();
+    $availability=$listing->findbyvehicleid($data['id']);
 
 	if(!$data)
 	{
@@ -256,7 +264,14 @@
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
-                        <img src="images/map.jpg" class="img-fluid" alt="#">
+                        <div class="address">
+                            <?php
+                                print_r($availability);
+                            ?>    
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <img src="style/images/map.jpg" class="img-fluid" alt="#">
                         <div class="address">
                             <span class="icon-location-pin"></span>
                             <p> Doyers St<br> New York, NY 10013<br> b/t Division St & St James Pl <br> Chinatown, Civic Center</p>
@@ -279,7 +294,7 @@
                     <div class="follow">
                         <div class="follow-img">
                             <img src="images/follow-img.jpg" class="img-fluid" alt="#">
-                            <h6>Christine Evans</h6>
+                            <h6><?php echo $data['name'];?></h6>
                             <span>New York</span>
                         </div>
                         <ul class="social-counts">
