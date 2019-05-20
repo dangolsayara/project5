@@ -39,12 +39,7 @@ class car
 		if($stmt->rowcount()>0)
 		{
 			$data=$stmt->fetch();
-			$this->id=$data['id'];
-			$this->brand=$data['brand'];
-			$this->model=$data['model'];
-			$this->milege=$data['milege'];
-			$this->price=$data['price'];
-			return true;
+			return $data;
 		}
 		else 
 			return false;
@@ -53,7 +48,7 @@ class car
 	}
 	function search($place,$from,$until)
 	{
-		$stmt=$this->conn->prepare("SELECT car.*,location.place from car inner join location on car.location_id=location.id where location.place like '%".$place."%'");
+		$stmt=$this->conn->prepare("SELECT * from car where location like '%".$place."%'");
 		$stmt->bindParam(':place',$place);
 		$stmt->execute();
 

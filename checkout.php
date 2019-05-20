@@ -1,12 +1,14 @@
 <?php
-
+    include 'database/Database.php';
 	include 'model/checkout.php';
+    include 'model/car.php';
 
 	$id=$_GET['id'];
 	if(!isset($id))
 	{
 		header('location:index.php');
 	}
+
 	if (isset($_POST['sbmtbtn']))
 	{
 		$checkout=new checkout();

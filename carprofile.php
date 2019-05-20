@@ -1,6 +1,8 @@
 <?php
 	include 'layout/header.php';
 	include 'layout/navbar.php';
+
+    include 'database/Database.php';
 	include 'model/car.php';
 
 
@@ -11,9 +13,9 @@
 	}
 
 	$car=new car();
+    $data=$car->findbyid($id);
 
-
-	if(!$car->findbyid($id))
+	if(!$data)
 	{
 		//redirect "not found";
 		echo "not found";
@@ -111,14 +113,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5><?php echo $car->model;?></h5>
+                    <h5><?php echo $data['model'];?></h5>
                     <p><span>$$$</span>$$</p>
                     <p class="reserve-description">Innovative cooking, paired with fine wines in a modern setting.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
                         <div class="reserve-rating">
-                            <span><?php echo $car->price; ?></span>
+                            <span><?php echo $data['price']; ?></span>
                         </div>
                         <div class="review-btn">
                             <a href="#" class="btn btn-outline-danger">WRITE A REVIEW</a>
@@ -126,7 +128,7 @@
                         </div>
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="checkout.php?id=<?php echo $car->id;?>" class="btn btn-danger">Checkout</a>
+                                <a href="checkout.php?id=<?php echo $data['id'];?>" class="btn btn-danger">Checkout</a>
                             </div>
                         </div>
                     </div>

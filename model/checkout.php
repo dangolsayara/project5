@@ -1,9 +1,8 @@
 <?php
-	include 'database/Database.php';
 /**
  * 
  */
-class checkout extends database
+class checkout
 {
 	public $id;
 	public $vehicle_id;

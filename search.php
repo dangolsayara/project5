@@ -3,6 +3,7 @@
 	include 'layout/header.php';
 	include 'layout/navbar.php';
 
+    include 'database/Database.php';
 	include 'model/car.php';
 
 	if (isset($_GET['country'])) 
@@ -172,7 +173,7 @@
                         <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
                             <div class="featured-place-wrap">
                                 <a href="carprofile.php?id=<?php echo $car['id'];?>">
-                                    <img src="https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=http%3A%2F%2Fcdni.autocarindia.com%2FGalleries%2F20190510045325_Audi-R8_Coupe-2019-1.jpg&h=300&w=450&c=1" class="img-fluid" alt="#">
+                                    <img src="uploads/<?php echo $car['display_image'];?>" class="img-fluid" alt="#">
                                     <span class="featured-rating-green"><?php echo $car['price']; ?></span>
                                     <div class="featured-title-box">
                                         <h6>Joe’s Shanghai <?php echo $car['model']; ?></h6>
@@ -181,7 +182,7 @@
                                         <p><span>$$$</span>$$</p>
                                         <ul>
                                             <li><span class="icon-location-pin"></span>
-                                                <p>1301 Avenue, Brooklyn, NY 11230</p>
+                                                <p>1301 <?php echo $car['location']; ?>, NY 11230</p>
                                             </li>
                                             <li><span class="icon-screen-smartphone"></span>
                                                 <p>+44 20 7336 8898</p>

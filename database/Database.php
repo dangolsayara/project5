@@ -24,5 +24,5 @@
 		}
 	}
 
-	$database=new database();
+	
 	?>
