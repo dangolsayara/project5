@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2019 at 02:51 PM
+-- Generation Time: May 21, 2019 at 05:09 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -83,16 +83,17 @@ CREATE TABLE `listing` (
   `vehicle_id` int(11) NOT NULL,
   `available_from` date NOT NULL,
   `available_until` date NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `checkout_status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `listing`
 --
 
-INSERT INTO `listing` (`id`, `vehicle_id`, `available_from`, `available_until`, `user_id`) VALUES
-(0, 1, '2019-05-20', '2019-05-30', 2),
-(0, 1, '2019-05-11', '2019-05-30', 1);
+INSERT INTO `listing` (`id`, `vehicle_id`, `available_from`, `available_until`, `user_id`, `checkout_status`) VALUES
+(1, 2, '2019-05-19', '2019-05-24', 1, 0),
+(2, 2, '2019-05-25', '2019-05-28', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -145,6 +146,12 @@ ALTER TABLE `car`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `listing`
+--
+ALTER TABLE `listing`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
@@ -160,6 +167,12 @@ ALTER TABLE `location`
 --
 ALTER TABLE `car`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `listing`
+--
+ALTER TABLE `listing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `location`
