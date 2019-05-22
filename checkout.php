@@ -2,6 +2,7 @@
     include 'database/Database.php';
 	include 'model/checkout.php';
     include 'model/car.php';
+    include 'model/listing.php';
 
 	$id=$_GET['id'];
 	if(!isset($id))
@@ -9,6 +10,12 @@
 		header('location:index.php');
 	}
 
+
+    $car=new car();
+    $data=$car->findbyid($id);
+
+    $listing=new listing();
+    $availability=$listing->findbyvehicleid($id);
 	if (isset($_POST['sbmtbtn']))
 	{
 		$checkout=new checkout();
@@ -102,15 +109,15 @@
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="row">
-                        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
                                             <h4 class="mb-0">Billing address</h4>
                                         </div>
                                         <div class="card-body">
-                                            <form class="needs-validation" novalidate="">
+                                            <form class="needs-validation" novalidate="" method="POST">
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="firstName">First name</label>
@@ -124,18 +131,6 @@
                                                         <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                                                         <div class="invalid-feedback">
                                                             Valid last name is required.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="username">Username</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text">@</span>
-                                                        </div>
-                                                        <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                                                        <div class="invalid-feedback" style="width: 100%;">
-                                                            Your username is required.
                                                         </div>
                                                     </div>
                                                 </div>
@@ -250,60 +245,34 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4 class="d-flex justify-content-between align-items-center mb-0">
-                                                        <span class="text-muted">Your cart</span>
-                                          <span class="badge badge-secondary badge-pill">3</span>
-                                                 </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="list-group mb-3">
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Product name</h6>
-                                                        <small class="text-muted">Brief description</small>
+                                <div class="col-lg-6 col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><?php echo $data['model'];?></h3>
+                                        <h6 class="card-subtitle text-muted mb-3"><?php echo $data['brand'];?></h6>
+                                        <img class="img-fluid mb-4" src="uploads/<?php echo $data['display_image'];?>" alt="Card image cap">
+                                        <p class="card-text">Ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Integer quis ipsum.</p>
+                                        <h4 class="mb-3">For Which date would you like to book this car</h4>
+                                                <div class="d-block my-3">
+                                                    <div class="custom-control custom-radio">
+                                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                                                        <label class="custom-control-label" for="credit">Credit card</label>
                                                     </div>
-                                                    <span class="text-muted">$12</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Second product</h6>
-                                                        <small class="text-muted">Brief description</small>
+                                                    <div class="custom-control custom-radio">
+                                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="debit">Debit card</label>
                                                     </div>
-                                                    <span class="text-muted">$8</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <div>
-                                                        <h6 class="my-0">Third item</h6>
-                                                        <small class="text-muted">Brief description</small>
-                                                    </div>
-                                                    <span class="text-muted">$5</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between bg-light">
-                                                    <div class="text-success">
-                                                        <h6 class="my-0">Promo code</h6>
-                                                        <small>EXAMPLECODE</small>
-                                                    </div>
-                                                    <span class="text-success">-$5</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between">
-                                                    <span>Total (USD)</span>
-                                                    <strong>$20</strong>
-                                                </li>
-                                            </ul>
-                                            <form>
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                    <div class="input-group-append">
-                                                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                                                    <div class="custom-control custom-radio">
+                                                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                                        <label class="custom-control-label" for="paypal">PayPal</label>
                                                     </div>
                                                 </div>
-                                            </form>
-                                        </div>
+                                        <a href="#" class="card-link">Card link</a>
+                                        <a href="#" class="card-link">Another link</a>
                                     </div>
                                 </div>
+                            </div>
+                               
                             </div>
                         </div>
                     </div>

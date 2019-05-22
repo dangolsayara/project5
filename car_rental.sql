@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2019 at 05:09 PM
+-- Generation Time: May 22, 2019 at 04:15 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -57,20 +57,11 @@ INSERT INTO `car` (`id`, `model`, `brand`, `noofseats`, `milege`, `price`, `disp
 
 CREATE TABLE `checkout` (
   `id` int(11) NOT NULL,
-  `vehicle_id` int(11) NOT NULL,
   `listing_id` int(11) NOT NULL,
-  `checkout_from` date NOT NULL,
-  `checkout_until` date NOT NULL,
-  `user_id` int(11) NOT NULL
+  `bookedby_id` int(11) NOT NULL,
+  `price` bigint(20) NOT NULL,
+  `vehicle_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `checkout`
---
-
-INSERT INTO `checkout` (`id`, `vehicle_id`, `listing_id`, `checkout_from`, `checkout_until`, `user_id`) VALUES
-(0, 1, 1, '2019-05-10', '2019-05-15', 1),
-(0, 1, 1, '2019-05-11', '2019-05-14', 1);
 
 -- --------------------------------------------------------
 
@@ -146,6 +137,12 @@ ALTER TABLE `car`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `listing`
 --
 ALTER TABLE `listing`
@@ -159,6 +156,12 @@ ALTER TABLE `location`
   ADD UNIQUE KEY `place` (`place`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -167,6 +170,12 @@ ALTER TABLE `location`
 --
 ALTER TABLE `car`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `checkout`
+--
+ALTER TABLE `checkout`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `listing`
@@ -178,6 +187,12 @@ ALTER TABLE `listing`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
