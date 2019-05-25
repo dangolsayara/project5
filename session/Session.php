@@ -8,7 +8,7 @@ class session
 	public $id;
 	public $email;
 
-	public $status;
+	public $status=false;
 
 
 	function __construct()
@@ -22,8 +22,30 @@ class session
 
 		}
 	}
+
+	function isloggedin()
+	{
+			if($this->status==true)
+				return true;
+			else
+				return false;
+	}
+
+	function getkey($key)
+	{
+  		if (isset($_SESSION[$key])) 
+  		{
+   			return $_SESSION[$key];
+  		} 
+  		else 
+  		{
+   			return false;
+  		}
+	}
+
 	function sessiondestroy()
 	{
 		session_destroy();
+		header("Location:login.php");
 	}
 }

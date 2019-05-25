@@ -1,12 +1,16 @@
 <?php
-
-	include 'database/Database.php';
-
-	class login extends database
+	class login
 	{
 		public $id;
 		public $email;
 		public $password;
+
+        private $conn;
+        function __construct()
+        {
+            $database=new database();
+            $this->conn=$database->connection();
+        }
 
 		public function userlogindetail($data)
 		{

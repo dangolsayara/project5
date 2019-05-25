@@ -1,67 +1,33 @@
 <?php
-	include 'model/login.php';
-	
-
-	$login=new login();
-
-	if(isset($_POST['sbmtbtn']))
-	{
-		if($login->userlogindetail($_POST))
-		{
-			header('location:userprofile.php');
-		}
-		else
-		{
-			echo "invalid username or password";
-		}
-
-	}
-	
-	
-
-	?>
-
-
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>login</title>
-</head>
-<body>
-	<table border="1">
-		<form method="POST">
-			<tr>
-				<td colspan="2"><h1>User Login</h1></td>
-			</tr>
-			<tr>
-				<td>User Name</td>
-				<td><input type="text" name="email"></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="text" name="password"></td>
-			</tr>
-			<tr>
-				<td><input type="submit"></td>
-			</tr>
-		</form>
-	</table>
-</body>
-</html>
--->
-<?php 
+include 'config/Call.php';
 include 'layout/headerback.php';
 
+	if($session->isloggedin())
+	{
+		header("location:userprofile.php");
+	}
+	else
+	{
+		if(isset($_POST['sbmtbtn']))
+			{
+				if($login->userlogindetail($_POST))
+					{
+						header('location:userprofile.php');
+					}
+				else
+					{
+						echo "invalid username or password";
+					}
+			}
+	}
 ?>
-
 <body>
     <!-- ============================================================== -->
     <!-- login page  -->
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+            <div class="card-header text-center"><a href="index.php"><img class="logo-img" src="styleback/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
             <div class="card-body">
                 <form method="POST">
                     <div class="form-group">
