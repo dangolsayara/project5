@@ -1,6 +1,4 @@
 <?php
-
-	//include 'model/location.php';
 	/**
 	 * 
 	 */
@@ -15,22 +13,15 @@
 
 		function insert($data)
 		{
-			$location=new location();
-			$place_id=$location->locationid($data['place']);
-			if(empty($place_id))
-			{
-				$location->insert($data['place']);
-				$place_id=$location->locationid($data['place']);
-			}
 
-			$stmt = $this->conn->prepare("INSERT INTO user (name, email, password, location_id, mobile) 
-    			VALUES (:name, :email, :password, :location_id, :mobile)");
+			$stmt = $this->conn->prepare("INSERT INTO user (name, email, password, location, mobile) 
+    			VALUES (:name, :email, :password, :location, :mobile)");
 
 			$stmt->bindParam(':name', $data['name']);
 			$stmt->bindParam(':email', $data['email']);
 			$stmt->bindParam(':password', $data['password']);
-			$stmt->bindParam(':location_id', $place_id);
-			$stmt->bindParam(':mobile',$mobile);
+			$stmt->bindParam(':location_id', $data['location']);
+			$stmt->bindParam(':mobile',$data['mobile']);
 
 			if($stmt->execute())
 				return true;

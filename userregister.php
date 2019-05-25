@@ -1,73 +1,46 @@
 <?php
-	include 'model/user.php';
-	$user=new user();
-	if (isset($_POST['sbmtbtn'])) 
-	{
-		$user->insert($_POST);
-	}
+  include 'config/Call.php';
+
+  include 'layout/header.php';
+  include 'layout/navbar.php';
+
+
+  if ($session->isloggedin()) 
+  {
+    header("location:userprofile.php");
+  }
+  else
+  {
+    if (isset($_POST['sbmtbtn'])) 
+    {
+      if($user->insert($_POST))
+        header("location:userprofile.php");
+    }
+  }
+
 	
 ?>
 
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Register</title>
-</head>
-<body>
-	<form>
-	<table border="2">
-		<tr>
-			<td><label>Name</label></td>
-			<td><input type="text" name="name"></td>
-		</tr>
-		<tr>
-			<td><label>Email</label></td>
-			<td><input type="text" name="email"></td>
-		</tr>
-		<tr>
-			<td><label>Password</label></td>
-			<td><input type="text" name="password"></td>
-		</tr>
-		<tr>
-			<td><label>location</label></td>
-			<td><input type="text" name="place"></td>
-		</tr>
-		<tr>
-			<td><label>mobile</label></td>
-			<td><input type="text" name="mobile"></td>
-		</tr>
-		<tr>
-			<td><input type="submit"> </td>
-		</tr>
-	</table>
-	</form>
-</body>
-</html>-->
-<?php
-include 'layout/header.php';
-include 'layout/navbar.php';
-?>
-
- <section id="main-content" class="booking-details_wrap">
+<div class="container">
+   <section id="main-content" class="booking-details_wrap">
 
           <section class="wrapper">
-		  <div class="row">
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-files-o"></i>User Info</h3>
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						<!--<li><i class="icon_document_alt"></i>Forms</li>
-						<li><i class="fa fa-files-o"></i>User</li>-->
-					</ol>
-				</div>
-			</div>
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-files-o"></i>User Register</h3>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="index.php">Home</a></li>
+            <!--<li><i class="icon_document_alt"></i>Forms</li>
+            <li><i class="fa fa-files-o"></i>User</li>-->
+          </ol>
+        </div>
+      </div>
               <!-- Form validations -->              
               <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Form validations
+                              Please Fill all the info
                           </header>
                           <div class="panel-body">
                               <div class="form">
@@ -99,14 +72,14 @@ include 'layout/navbar.php';
                                       <div class="form-group ">
                                           <label for="ccomment" class="control-label col-lg-2">Mobile</label>
                                           <div class="col-lg-10">
-                                          	<input class="form-control" id="mobile" name="mobile" type="text" required />
-	
+                                            <input class="form-control" id="mobile" name="mobile" type="text" required />
+  
                                           </div>
                                       </div>
                                       <div class="form-group">
                                           <div class="col-lg-offset-2 col-lg-10">
                                               <button class="btn btn-primary" type="submit" name="sbmtbtn">Save</button>
-                                              <button class="btn btn-default" type="button">Cancel</button>
+                                              <button class="btn btn-default" type="reset">Cancel</button>
                                           </div>
                                       </div>
                                   </form>
@@ -121,4 +94,6 @@ include 'layout/navbar.php';
           </section>
       </section>
       <!--main content end-->
+</div>
+
  
