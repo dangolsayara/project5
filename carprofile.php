@@ -15,7 +15,14 @@
 
     $data=$car->findbyid($id);
 
-    $data+=$user->findbyid($data['owner_id']);
+    if(isset($data['owner_id']))
+    {
+        $data+=$user->findbyid($data['owner_id']);
+    }
+    else
+    {
+        $data+= array('name' => "Owner not defined" );
+    }
     
     $availability=$listing->findbyvehicleid($data['id']);
 

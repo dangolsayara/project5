@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2019 at 04:15 AM
+-- Generation Time: May 25, 2019 at 03:41 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -45,7 +45,7 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`id`, `model`, `brand`, `noofseats`, `milege`, `price`, `display_image`, `location`, `owner_id`) VALUES
-(1, 'veriyon', 'Buggati', 2, 45, 100, 'carimage1.jpg', 'bhaktapur,Nepal', 0),
+(1, 'veriyon', 'Buggati', 2, 45, 100, 'carimage1.jpg', 'bhaktapur,Nepal', 1),
 (2, 'Ferrari', 'lamborgini', 2, 150, 400, 'carimage2.jpg', 'Bhaktapur,Nepal', 1),
 (3, 'mustang', 'ferari', 2, 50, 200, '', 'kathmandu,Nepal', 1);
 
@@ -115,7 +115,7 @@ CREATE TABLE `user` (
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `location_id` int(11) NOT NULL,
+  `location` varchar(100) NOT NULL,
   `mobile` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -123,8 +123,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `location_id`, `mobile`) VALUES
-(1, 'Bilson', 'bilson@gmail.com', '1234', 1, '98412222');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `location`, `mobile`) VALUES
+(1, 'Bilson', 'bilson@gmail.com', '1234', 'Bhaktapur', '98412222');
 
 --
 -- Indexes for dumped tables
