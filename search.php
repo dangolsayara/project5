@@ -1,10 +1,8 @@
 <?php
-	
+	include 'config/Call.php';
 	include 'layout/header.php';
 	include 'layout/navbar.php';
 
-    include 'database/Database.php';
-	include 'model/car.php';
 
 	if (isset($_GET['country'])) 
 	{
@@ -12,7 +10,7 @@
 	}
 	else
 	{
-		$country="nepal";
+		$place="nepal";
 	}
 	if (isset($_GET['from'])) 
 	{
@@ -31,7 +29,6 @@
 		$until='2019/06/03';
 	}
 
-	$car=new car();
 	$result=$car->search('Bhaktapur',$from,$until);
 	//$result=$car->findbyid('1');
 	if ($result==false)
@@ -41,33 +38,6 @@
 	}
 	
 ?>
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Find what you like</title>
-</head>
-<body>
- 	<table border="2">
- 		<tr>
- 			<td>Car results</td>
- 		</tr>
- 		<?php
-
- 		foreach ($result as $car) : ?>
- 			<tr>
- 				<td><?php echo $car['brand']; ?></td>
- 				<td><?php echo $car['model']; ?></td>
- 				<td><?php echo $car['price']; ?></td>
- 				<td><a href="carprofile.php?id=<?php echo $car['id'];?>">view</a></td>
- 			</tr>
- 			
- 		<?php endforeach; ?>
-
- 	</table>
-</body>
-</html>
--->
 
    <!--============================= DETAIL =============================-->
     <section>
@@ -77,91 +47,16 @@
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <p>34 Results For <span>Restaurant</span></p>
+                                <p><?php echo count($result)." "; ?>Results For <span><?php echo $place; ?></span></p>
                             </div>
                         </div>
                         <div class="col-md-8 featured-responsive">
                             <div class="detail-filter">
-                                <p>Filter by</p>
-                                <form class="filter-dropdown">
-                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                  <option selected>Best Match</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                                </form>
-                                <form class="filter-dropdown">
-                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect1">
-                  <option selected>Restaurants</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                                </form>
+                              
                                 <div class="map-responsive-wrap">
                                     <a class="map-icon" href="#"><span class="icon-location-pin"></span></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row detail-checkbox-wrap">
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Bike Parking</span>
-              </label>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Wireless Internet  </span>
-              </label>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Smoking Allowed  </span>
-              </label>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Street Parking</span>
-              </label>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Special</span>
-              </label>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Accepts Credit cards</span>
-              </label>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-
-                            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Pets Friendly</span>
-              </label>
-
                         </div>
                     </div>
                     <div class="row light-bg detail-options-wrap">
@@ -187,13 +82,9 @@
                                             <li><span class="icon-screen-smartphone"></span>
                                                 <p>+44 20 7336 8898</p>
                                             </li>
-                                            <li><span class="icon-link"></span>
-                                                <p>https://burgerandlobster.com</p>
-                                            </li>
-
                                         </ul>
                                         <div class="bottom-icons">
-                                            <div class="open-now">OPEN NOW</div>
+                                            <div class="open-now">BOOK NOW</div>
                                             <span class="ti-heart"></span>
                                             <span class="ti-bookmark"></span>
                                         </div>
