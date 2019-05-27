@@ -24,7 +24,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="style/css/style.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="style/css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="style/css/magnific-popup.css">
 </head>

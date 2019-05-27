@@ -1,17 +1,13 @@
 <?php
-	include 'database/Database.php';
-	include 'model/user.php';
-	include 'model/car.php';
-
-	session_start();
-	$id=$_SESSION['id'];
+	include 'config/Call.php';
 
 
-	$user=new user();
-	$car=new car();
+	$id=$session->getkey("id");
 
 	$data=$user->findbyid($id);
 	$cars=$car->findbyuserid($id);
+	$mylisting=$listing->findbyuserid($id);
+
 	if(empty($data))
 	{
 		//redirect "not found";
@@ -19,38 +15,6 @@
 	}
 
 ?>
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>User Profile</title>
-</head>
-<body>
-	<table border="1">
-		<tr>
-			<td><label>Name</label></td>
-			<td><?php echo $user->name;?></td>
-		</tr>
-		<tr>
-			<td><label>Email</label></td>
-			<td><?php echo $user->email;?></td>
-		</tr>
-		
-		<tr>
-			<td><label>location id</label></td>
-			<td><?php echo $user->location_id;?></td>
-		</tr>
-		<tr>
-			<td><label>mobile</label></td>
-			<td><?php echo $user->mobile;?></td>
-		</tr>
-		<tr>
-			<td><a href="edit.php">edit</a> </td>
-		</tr>
-	</table>
-</body>
-</html>
--->
 
 <?php 
 include 'layout/headerback.php';
@@ -68,13 +32,13 @@ include 'layout/sidebarback.php';
 	                <div class="row">
 	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 	                        <div class="page-header">
-	                            <h3 class="mb-2">Infulencer Dashboard Template </h3>
+	                            <h3 class="mb-2">Dashboard</h3>
 	                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
 	                            <div class="page-breadcrumb">
 	                                <nav aria-label="breadcrumb">
 	                                    <ol class="breadcrumb">
-	                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-	                                        <li class="breadcrumb-item active" aria-current="page">Influencer Dashboard Template</li>
+	                                        <li class="breadcrumb-item"><a href="userprofile.php" class="breadcrumb-link">Dashboard</a></li>
+	                                        <li class="breadcrumb-item active" aria-current="page">Home</li>
 	                                    </ol>
 	                                </nav>
 	                            </div>
@@ -118,7 +82,7 @@ include 'layout/sidebarback.php';
 	                                                <!--  <div class="float-right"><a href="#" class="user-avatar-email text-secondary">www.henrybarbara.com</a></div> -->
 	                                                <div class="user-avatar-address">
 	                                                    <p class="border-bottom pb-3">
-	                                                        <span class="d-xl-inline-block d-block mb-2"><i class="fa fa-map-marker-alt mr-2 text-primary "></i>4045 Denver AvenueLos Angeles, CA 90017</span>
+	                                                        <span class="d-xl-inline-block d-block mb-2"><i class="fa fa-map-marker-alt mr-2 text-primary "></i>4045 <?php echo $data['location']; ?>, CA 90017</span>
 	                                                        <span class="mb-2 ml-xl-4 d-xl-inline-block d-block">Joined date: 23 June, 2018  </span>
 	                                                        <span class=" mb-2 d-xl-inline-block d-block ml-xl-4">Male 
 	                                                                </span>
@@ -342,20 +306,51 @@ include 'layout/sidebarback.php';
 	                        <!-- end followers by locations  -->
 	                        <!-- ============================================================== -->
 	                    </div>
+	                    	                    <!-- ============================================================== -->
+	                    <!-- Vehicle owned   -->
+	                    <!-- ============================================================== -->
+	                    <div class="row">
+	                        <div class="col-lg-12">
+	                            <div class="section-block">
+	                                <h3 class="section-title">Vehicles Owned</h3>
+	                            </div>
+	                        </div>
+	                        <?php foreach ($cars as $owned) : ?>
+	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">              	
+	                            <div class="card campaign-card text-center">
+	                                <div class="card-body">
+	                                    <div><img src="uploads/<?php echo $owned['display_image'];?>" alt="user" class="img-fluid"></div>
+	                                        <div class="campaign-info">
+	                                            <h3 class="mb-1"><?php echo $owned['model']; ?></h3>
+	                                            <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">2,50,000</span></p>
+	                                            <p>Payout: <span class="text-dark font-medium ml-2">$<?php echo $owned['price'];?></span></p>
+	                                            <a href="#"><i class="fab fa-twitter-square fa-sm twitter-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                        <?php endforeach ; ?>
+
+	                           
+	                        </div>
+	                                    <!-- ============================================================== -->
+	                                    <!-- end recommended campaigns   -->
+	                                    <!-- ============================================================== -->
 	                    <div class="row">
 	                        <!-- ============================================================== -->
-	                        <!-- campaign activities   -->
+	                        <!-- My Active Listing   -->
 	                        <!-- ============================================================== -->
 	                        <div class="col-lg-12">
 	                            <div class="section-block">
-	                                <h3 class="section-title">My Active Campaigns</h3>
+	                                <h3 class="section-title">My Active Listing</h3>
 	                            </div>
 	                            <div class="card">
 	                                <div class="campaign-table table-responsive">
 	                                    <table class="table">
 	                                        <thead>
 	                                            <tr class="border-0">
-	                                                <th class="border-0">Company</th>
+	                                                <th class="border-0">Vehicle</th>
 	                                                <th class="border-0">Campaign Name</th>
 	                                                <th class="border-0">Social Platform</th>
 	                                                <th class="border-0">Min / Max Views</th>
@@ -365,9 +360,14 @@ include 'layout/sidebarback.php';
 	                                            </tr>
 	                                        </thead>
 	                                        <tbody>
-	                                            <tr>
+	                                        	<?php
+
+	                                        		foreach ($mylisting as $list) 
+	                                        		{
+	                                        	?>
+	                                        			<tr>
 	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div>
+	                                                    <?php echo $list['vehicle_id'];?>
 	                                                </td>
 	                                                <td>Fashion E Commerce </td>
 	                                                <td>
@@ -399,133 +399,10 @@ include 'layout/sidebarback.php';
 	                                                    </div>
 	                                                </td>
 	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/github.png" alt="user" width="35"></div>
-	                                                </td>
-	                                                <td>Fitness Products </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-twitter-square twitter-color "></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>2,50,000 / 3,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>10 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/dropbox.png" alt="user" width="35"></div>
-	                                                </td>
-	                                                <td>Gym Trainer Program </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color "></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color "></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>3,50,000 / 4,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>22 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/bitbucket.png" alt="user" width="30"></div>
-	                                                </td>
-	                                                <td>2018 Top Product </td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>4,50,000 / 5,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>25 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
-	                                            <tr>
-	                                                <td>
-	                                                    <div class="m-r-10"><img src="assets/images/mail_chimp.png" alt="user" width="30"></div>
-	                                                </td>
-	                                                <td>Top Dashboard Sale 2018</td>
-	                                                <td>
-	                                                    <div class="avatar-group">
-	                                                        <span><a href="#"><i class="fab fa-fw fa-facebook-square facebook-color"></i></a></span>
-	                                                        <span><a href="#"><i class="fab fa-fw fa-pinterest-square pinterest-color"></i></a></span>
-	                                                    </div>
-	                                                </td>
-	                                                <td>5,50,000 / 6,50,000</td>
-	                                                <td>70%</td>
-	                                                <td>27 Aug,2018</td>
-	                                                <td>
-	                                                    <div class="dropdown float-right">
-	                                                        <a href="#" class="dropdown-toggle  card-drop" data-toggle="dropdown" aria-expanded="true">
-	                                            <i class="mdi mdi-dots-vertical"></i>
-	                                        </a>
-	                                                        <div class="dropdown-menu dropdown-menu-right">
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-	                                                            <!-- item-->
-	                                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-	                                                        </div>
-	                                                    </div>
-	                                                </td>
-	                                            </tr>
+	                                        	<?php		
+	                                        		}
+	                                        	?>
+	                                
 	                                        </tbody>
 	                                    </table>
 	                                </div>
@@ -535,43 +412,13 @@ include 'layout/sidebarback.php';
 	                        <!-- end campaign activities   -->
 	                        <!-- ============================================================== -->
 	                    </div>
-	                    <!-- ============================================================== -->
-	                    <!-- recommended campaigns   -->
-	                    <!-- ============================================================== -->
-	                    <div class="row">
-	                        <div class="col-lg-12">
-	                            <div class="section-block">
-	                                <h3 class="section-title">Vehicles Owned</h3>
-	                            </div>
-	                        </div>
-	                        <?php foreach ($cars as $owned) : ?>
-	                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">              	
-	                            <div class="card campaign-card text-center">
-	                                <div class="card-body">
-	                                    <div class="campaign-img"><img src="assets/images/dribbble.png" alt="user" class="user-avatar-xl"></div>
-	                                        <div class="campaign-info">
-	                                            <h3 class="mb-1"><?php echo $owned['model']; ?></h3>
-	                                            <p class="mb-3">Vestibulum porttitor laoreet faucibus.</p>
-	                                            <p class="mb-1">Min, Views:<span class="text-dark font-medium ml-2">2,50,000</span></p>
-	                                            <p>Payout: <span class="text-dark font-medium ml-2">$<?php echo $owned['price'];?></span></p>
-	                                            <a href="#"><i class="fab fa-twitter-square fa-sm twitter-color"></i> </a><a href="#"><i class="fab fa-snapchat-square fa-sm snapchat-color"></i></a>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
 
-	                        <?php endforeach ; ?>
-
-	                           
-	                                    </div>
-	                                    <!-- ============================================================== -->
-	                                    <!-- end recommended campaigns   -->
-	                                    <!-- ============================================================== -->
 	                                    <!-- ============================================================== -->
 	                                    <!-- end content  -->
 	                                    <!-- ============================================================== -->
-	                                </div>
-	                            </div>
+	                    </div>
+
+	                </div>
 
 
 	<?php

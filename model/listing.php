@@ -23,6 +23,21 @@
 		else 
 			return false;
 	}
+
+	public function findbyuserid($id)
+	{
+		$stmt= $this->conn->prepare("SELECT * from listing where user_id=:id");
+		$stmt->bindParam(':id',$id);
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		if($stmt->rowcount()>0)
+		{
+			$data=$stmt->fetchall();
+			return $data;
+		}
+		else 
+			return false;
+	}
 	}
 	
 
