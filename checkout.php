@@ -1,80 +1,33 @@
 <?php
-    include 'database/Database.php';
-	include 'model/checkout.php';
-    include 'model/car.php';
-    include 'model/listing.php';
+    include 'config/Call.php';
+
 
 	$id=$_GET['id'];
-	if(!isset($id))
+	if(empty($id))
 	{
 		header('location:index.php');
 	}
+    else
+    {
+        if($session->isloggedin())
+        {
+            $data=$car->findbyid($id);
 
-
-    $car=new car();
-    $data=$car->findbyid($id);
-
-    $listing=new listing();
-    $availability=$listing->findbyvehicleid($id);
-	if (isset($_POST['sbmtbtn']))
-	{
-		$checkout=new checkout();
-		if($checkout->insert($_POST))
-		{
-			header('location:index.php');
-		}
-	}
-
-	
+            $availability=$listing->findbyvehicleid($id);
+            if (isset($_POST['sbmtbtn']))
+            {
+                if($checkout->insert($_POST))
+                {
+                    header('location:index.php');
+                }
+            }
+        }
+        else
+        {
+            header('location:login.php');
+        }
+    }	
 ?>
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Checkout</title>
-</head>
-<body>
-	<form method="POST">
-		<table border="2">
-		<tr>
-			<td><h1>Checkout</h1></td>
-		</tr>
-		<tr>
-			<td><label>Id</label></td>
-			<td>
-				<input type="text" name="" value="<?php echo "$id"; ?>" disabled>
-			</td>
-		</tr>
-		<tr>
-			<td><label>Vehicle_id</label></td>
-			<td><input type="text" name="vehicle_id"></td>
-		</tr>
-		<tr>
-			<td><label>Listing Id</label></td>
-			<td><input type="text" name="listing_id"></td>
-		</tr>
-		<tr>
-			<td><label>Checkout From</label></td>
-			<td><input type="date" name="checkout_from"></td>
-		</tr>
-		<tr>
-			<td><label>Checkout Until</label></td>
-			<td><input type="date" name="checkout_until"></td>
-		</tr>
-		<tr>
-			<td><label>User Id</label></td>
-			<td><input type="text" name="user_id"></td>
-		</tr>
-		<tr>
-			<td><input type="submit" name="sbmtbtn"></td>
-		</tr>
-		</table>
-	</form>
-</body>
-</html>
-
--->
-
 <?php
 	include 'layout/headerback.php';
 	include 'layout/sidebarback.php';
@@ -118,6 +71,7 @@
                                         </div>
                                         <div class="card-body">
                                             <form class="needs-validation" novalidate="" method="POST">
+                                                <!--
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="firstName">First name</label>
@@ -191,21 +145,7 @@
                                                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                                                 </div>
                                                 <hr class="mb-4">
-                                                <h4 class="mb-3">Payment</h4>
-                                                <div class="d-block my-3">
-                                                    <div class="custom-control custom-radio">
-                                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                                                        <label class="custom-control-label" for="credit">Credit card</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="debit">Debit card</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">PayPal</label>
-                                                    </div>
-                                                </div>
+                       
                                                 <div class="row">
                                                     <div class="col-md-6 mb-3">
                                                         <label for="cc-name">Name on card</label>
@@ -239,9 +179,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                            -->
+                                                <input type="hidden" name="bookedby_id" value="<?php echo $session->getkey('id'); ?>">
+                                                <input type="hidden" name="vehicle_id" value="<?php echo $id; ?>">
                                                 <hr class="mb-4">
-                                                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-                                            </form>
+                                                <button class="btn btn-primary btn-lg btn-block" type="submit" name="sbmtbtn">Continue to checkout</button>
+                                        <!--    </form> -->
                                         </div>
                                     </div>
                                 </div>
@@ -253,26 +197,41 @@
                                         <img class="img-fluid mb-4" src="uploads/<?php echo $data['display_image'];?>" alt="Card image cap">
                                         <p class="card-text">Ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Integer quis ipsum.</p>
                                         <h4 class="mb-3">For Which date would you like to book this car</h4>
-                                                <div class="d-block my-3">
+                                         <div class="d-block my-3">
+
+                                        <?php
+                              
+                                            if(!$availability)
+                                                {
+                                                    echo "This Car is not available for now";
+                                                }
+                                            else
+                                                {
+                                                    foreach ($availability as $date) 
+                                                        {  
+                                        ?>       
+
+
                                                     <div class="custom-control custom-radio">
-                                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                                                        <label class="custom-control-label" for="credit">Credit card</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="debit">Debit card</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                                        <label class="custom-control-label" for="paypal">PayPal</label>
-                                                    </div>
-                                                </div>
+                                                        <input id="credit" name="listing_id" type="radio" class="custom-control-input" checked="" required="" value="<?php echo $date['id']?>">
+                                                        <label class="custom-control-label" for="credit"><?php echo $date['available_from'];
+                                                            echo "  to  ";
+                                                            echo $date['available_until'] ?></label>
+                                                    </div>                  
+                                    
+                                            <?php
+                                                        }
+                                                }
+                                            ?>  
+                                         </div>      
+
+                                            
                                         <a href="#" class="card-link">Card link</a>
                                         <a href="#" class="card-link">Another link</a>
                                     </div>
                                 </div>
                             </div>
-                               
+                             </form>   
                             </div>
                         </div>
                     </div>

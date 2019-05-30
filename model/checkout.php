@@ -4,29 +4,28 @@
  */
 class checkout
 {
-	public $id;
-	public $vehicle_id;
-	public $listing_id;	
-	public $checkout_from;
-	public $checkout_until;
-	public $user_id;
-
+	private $conn;
 	function __construct()
 	{
-		parent::__construct();
+		$database=new database();
+		$this->conn=$database->connection();
 	}
+
 
 	function insert($data)
 	{
-		$stmt = $this->conn->prepare("INSERT INTO checkout (`vehicle_id`, `listing_id`, `checkout_from`, `checkout_until`, `user_id`) 
-    			VALUES (:vehicle_id, :listing_id, :checkout_from, :checkout_until, :user_id)");
+		$stmt = $this->conn->prepare("INSERT INTO checkout (`listing_id`, `bookedby_id`, `vehicle_id`)
+    			VALUES (:listing_id, :bookedby_id, :vehicle_id)");
 
-		$stmt->bindParam(':vehicle_id', $data['vehicle_id']);
 		$stmt->bindParam(':listing_id', $data['listing_id']);
-		$stmt->bindParam(':checkout_from', $data['checkout_from']);
-		$stmt->bindParam(':checkout_until', $data['checkout_until']);
-		$stmt->bindParam(':user_id', $data['user_id']);
+		$stmt->bindParam(':bookedby_id', $data['bookedby_id']);
+		$stmt->bindParam(':vehicle_id', $data['vehicle_id']);
 
+		$stmt->execute();
+
+		$stmt = $this->conn->prepare("UPDATE `listing` SET `checkout_status`= 1 WHERE id=:listing_id;");
+
+		$stmt->bindParam(':listing_id', $data['listing_id']);	
 		$stmt->execute();
 
 		return true;

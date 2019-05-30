@@ -8,7 +8,7 @@
 
 
 	$id=$_GET['id'];
-	if(!isset($id))
+	if(empty($id))
 	{
 		$id=1;
 	}

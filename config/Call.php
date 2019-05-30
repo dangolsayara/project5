@@ -17,5 +17,8 @@
 
     include 'model/listing.php';
     $listing=new listing();
+
+    include 'model/checkout.php';
+    $checkout=new checkout();
 ?>
 
