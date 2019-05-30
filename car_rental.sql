@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2019 at 03:41 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: May 30, 2019 at 04:03 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -59,9 +59,16 @@ CREATE TABLE `checkout` (
   `id` int(11) NOT NULL,
   `listing_id` int(11) NOT NULL,
   `bookedby_id` int(11) NOT NULL,
-  `price` bigint(20) NOT NULL,
   `vehicle_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`id`, `listing_id`, `bookedby_id`, `vehicle_id`) VALUES
+(3, 2, 1, 2),
+(4, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -84,7 +91,7 @@ CREATE TABLE `listing` (
 
 INSERT INTO `listing` (`id`, `vehicle_id`, `available_from`, `available_until`, `user_id`, `checkout_status`) VALUES
 (1, 2, '2019-05-19', '2019-05-24', 1, 0),
-(2, 2, '2019-05-25', '2019-05-28', 1, 0);
+(2, 2, '2019-05-25', '2019-05-28', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -175,7 +182,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `listing`
