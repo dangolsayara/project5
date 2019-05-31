@@ -42,5 +42,35 @@
 			else 
 				return false;
 		}
+		function resetPassword($id,$data)
+		{
+			$stmt = $this->conn->prepare("UPDATE `user` SET `password`=:password WHERE id=:id");
+
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':password', $data['password']);
+			
+
+			if($stmt->execute())
+				return true;
+			else
+				return false;
+		}
+		function update($id,$data)
+		{
+			$stmt = $this->conn->prepare("UPDATE `user` SET `name`=:name, `email`=:email, `location`=:location, `mobile`=:mobile WHERE id=:id");
+
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':name', $data['name']);
+			$stmt->bindParam(':email', $data['email']);
+			$stmt->bindParam(':location', $data['location']);
+			$stmt->bindParam(':mobile', $data['mobile']);
+
+			
+
+			if($stmt->execute())
+				return true;
+			else
+				return false;
+		}
 
 	}

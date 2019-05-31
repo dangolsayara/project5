@@ -4,38 +4,18 @@
 	include 'layout/navbar.php';
 
 
-	if (isset($_GET['country'])) 
+	if (isset($_GET['place'])) 
 	{
-		$place=$_GET['country'];
+		$place=$_GET['place'];
 	}
 	else
 	{
 		$place="nepal";
 	}
-	if (isset($_GET['from'])) 
-	{
-		$from=$_GET['from'];
-	}
-	else
-	{
-		$from='2019/05/03';
-	}
-	if (!isset($_GET['until']))
-	{
-		$until=$_GET['until'];
-	}
-	else
-	{
-		$until='2019/06/03';
-	}
 
-	$result=$car->search('Bhaktapur',$from,$until);
+	$result=$car->search($place);
 	//$result=$car->findbyid('1');
-	if ($result==false)
-	 {
 
-		echo "No data found";
-	}
 	
 ?>
 
@@ -47,7 +27,13 @@
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <p><?php echo count($result)." "; ?>Results For <span><?php echo $place; ?></span></p>
+                                <p><?php
+                                if ($result==false)
+                                    echo "0";
+                                else
+                                    echo count($result)." "; 
+                                ?>
+                                Results For <span><?php echo ucfirst($place); ?></span></p>
                             </div>
                         </div>
                         <div class="col-md-8 featured-responsive">
@@ -61,8 +47,11 @@
                     </div>
                     <div class="row light-bg detail-options-wrap">
 
-                     
+                        
                         <?php
+
+                            if($result!=false)
+                            {
                             foreach ($result as $car) : 
                         ?>
                         <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
@@ -71,16 +60,16 @@
                                     <img src="uploads/<?php echo $car['display_image'];?>" class="img-fluid" alt="#">
                                     <span class="featured-rating-green"><?php echo $car['price']; ?></span>
                                     <div class="featured-title-box">
-                                        <h6>Joe’s Shanghai <?php echo $car['model']; ?></h6>
-                                        <p><?php echo $car['brand']; ?> </p> <span>• </span>
-                                        <p>3 Reviews</p> <span> • </span>
+                                        <h6><?php echo ucfirst($car['name'])."'s "; echo ucfirst($car['model']); ?></h6>
+                                        <p><?php echo ucfirst($car['brand']); ?> </p> <span>• </span>
+                                        <p><?php echo $car['milege']; ?> km/l</p> <span> • </span>
                                         <p><span>$$$</span>$$</p>
                                         <ul>
                                             <li><span class="icon-location-pin"></span>
-                                                <p>1301 <?php echo $car['location']; ?>, NY 11230</p>
+                                                <p> <?php echo ucfirst($car['location']); ?></p>
                                             </li>
                                             <li><span class="icon-screen-smartphone"></span>
-                                                <p>+44 20 7336 8898</p>
+                                                <p><?php echo $car['mobile'];?></p>
                                             </li>
                                         </ul>
                                         <div class="bottom-icons">
@@ -92,7 +81,16 @@
                                 </a>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                        <?php endforeach; 
+                            }
+                            else
+                                {
+                            ?>
+                               <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive" style="height: 354px">
+                                   <h4> No Result Found</h4>
+                               </div>   
+                                  <?php  
+                                }?>
 
                     </div>
                 </div>
@@ -100,7 +98,7 @@
                     <div class="map-fix">
                         <!-- data-toggle="affix" -->
                         <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
-                        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="14"></div>
+                        <div id="map" data-lat="27.71" data-lon="85.32" data-zoom="14"></div>
                     </div>
                 </div>
             </div>
@@ -143,7 +141,7 @@
         }
     </script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDqPAMbX638ypBmapcWjayIFlmAIOpslMs"></script>
 </body>
 
 </html>

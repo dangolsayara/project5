@@ -20,5 +20,9 @@
 
     include 'model/checkout.php';
     $checkout=new checkout();
+
+    include 'model/image.php';
+    $carImage=new image();
+
 ?>
 

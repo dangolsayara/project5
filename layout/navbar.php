@@ -13,7 +13,7 @@
                             <ul class="navbar-nav">
                     
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="carlisting.php">List your car</a>
+                                    <a class="nav-link" href="userprofile.php#VehicleOwned">List your car</a>
                                 </li>
                                 <li class="nav-item active">
                                     <a class="nav-link" href="userregister.php">learn more</a>
@@ -38,7 +38,8 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <a class="dropdown-item" href="userprofile.php">My profile</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="usersetting.php">Setting</a>
+                                            <a class="dropdown-item" href="userresetpassword.php">Reset Password</a>
                                             <a class="dropdown-item" href="logout.php">Logout</a>
                                         </div>
                                     </li>

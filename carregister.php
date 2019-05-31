@@ -122,10 +122,10 @@
                                                 <input type="text" required="" placeholder="Type something" class="form-control" name="price">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
+                                      <div class="form-group row">
+                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">About</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="file" placeholder="Type something" class="form-control" name="image">
+                                                <textarea required="" class="form-control" name="about"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">

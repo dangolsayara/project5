@@ -17,7 +17,7 @@ include 'layout/header.php';
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="carlisting.php">List your car</a>
+                                        <a class="nav-link" href="userprofile.php#VehicleOwned">List your car</a>
                                     </li>
                                     <li class="nav-item active">
                                         <a class="nav-link" href="userregister.php">learn more</a>
@@ -41,7 +41,8 @@ include 'layout/header.php';
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <a class="dropdown-item" href="userprofile.php">My profile</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="usersetting.php">Setting</a>
+                                            <a class="dropdown-item" href="userresetpassword.php">Reset Password</a>
                                             <a class="dropdown-item" href="logout.php">Logout</a>
                                         </div>
                                     </li>
@@ -78,9 +79,7 @@ include 'layout/header.php';
                             <div class="col-md-10">
                                 <form class="form-wrap mt-4" method="GET" action="search.php">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="New york" class="btn-group2" name="place">
-                                        <input type="date" class="btn-group1" name="from">
-                                        <input type="date" class="btn-group1" name="until">
+                                        <input type="text" placeholder="Nepal" class="btn-group" name="place">
                                         <button type="submit" class="btn-form" value="Submit"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
@@ -111,7 +110,6 @@ include 'layout/header.php';
                                 <img src="style/images/find-place1.jpg" class="img-fluid" alt="img13" />
                                 <figcaption>
                                     <h5>Nightlife </h5>
-                                    <p>385 Listings</p>
                                 </figcaption>
                             </figure>
                         </div>
@@ -126,7 +124,6 @@ include 'layout/header.php';
                                         <img src="style/images/find-place2.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Restaurants</h5>
-                                            <p>210 Listings</p>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -141,7 +138,6 @@ include 'layout/header.php';
                                         <img src="style/images/find-place3.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Outdoors </h5>
-                                            <p>114 Listings</p>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -158,7 +154,6 @@ include 'layout/header.php';
                                         <img src="style/images/find-place4.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Hotels </h5>
-                                            <p>577 Listings</p>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -173,7 +168,6 @@ include 'layout/header.php';
                                         <img src="style/images/find-place5.jpg" class="img-fluid" alt="img13" />
                                         <figcaption>
                                             <h5>Art & Culture </h5>
-                                            <p>79 Listings</p>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -197,35 +191,58 @@ include 'layout/header.php';
             </div>
             <div class="row">
                 <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
+                            <div class="featured-place-wrap">
                                 <a href="carprofile.php?id=1">
                                     <img src="uploads/carimage1.jpg" class="img-fluid" alt="#">
                                     <span class="featured-rating-green">100</span>
                                     <div class="featured-title-box">
-                                        <h6>Joe’s Shanghai veriyon</h6>
+                                        <h6>Bilson's Veriyon</h6>
                                         <p>Buggati </p> <span>• </span>
-                                        <p>3 Reviews</p> <span> • </span>
+                                        <p>45 km/l</p> <span> • </span>
                                         <p><span>$$$</span>$$</p>
                                         <ul>
                                             <li><span class="icon-location-pin"></span>
-                                                <p>1301 bhaktapur,Nepal, NY 11230</p>
+                                                <p> Bhaktapur,Nepal</p>
                                             </li>
                                             <li><span class="icon-screen-smartphone"></span>
-                                                <p>+44 20 7336 8898</p>
+                                                <p>98412222</p>
                                             </li>
-                                            <li><span class="icon-link"></span>
-                                                <p>https://burgerandlobster.com</p>
-                                            </li>
-
                                         </ul>
                                         <div class="bottom-icons">
-                                            <div class="open-now">OPEN NOW</div>
+                                            <div class="open-now">BOOK NOW</div>
                                             <span class="ti-heart"></span>
                                             <span class="ti-bookmark"></span>
                                         </div>
                                     </div>
                                 </a>
-                    </div>
+                            </div>
+                        </div>
+                <div class="col-md-4 featured-responsive">
+                   <div class="featured-place-wrap">
+                                <a href="carprofile.php?id=3">
+                                    <img src="uploads/image 3.jpeg" class="img-fluid" alt="#">
+                                    <span class="featured-rating-green">200</span>
+                                    <div class="featured-title-box">
+                                        <h6>Bilson's Mustang</h6>
+                                        <p>Ferari </p> <span>• </span>
+                                        <p>50 km/l</p> <span> • </span>
+                                        <p><span>$$$</span>$$</p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p> Kathmandu,Nepal</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>98412222</p>
+                                            </li>
+                                        </ul>
+                                        <div class="bottom-icons">
+                                            <div class="open-now">BOOK NOW</div>
+                                            <span class="ti-heart"></span>
+                                            <span class="ti-bookmark"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                 </div>
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
@@ -233,61 +250,26 @@ include 'layout/header.php';
                                     <img src="uploads/carimage2.jpg" class="img-fluid" alt="#">
                                     <span class="featured-rating-green">400</span>
                                     <div class="featured-title-box">
-                                        <h6>Joe’s Shanghai Ferrari</h6>
-                                        <p>lamborgini </p> <span>• </span>
-                                        <p>3 Reviews</p> <span> • </span>
+                                        <h6>Bilson's Ferrari</h6>
+                                        <p>Lamborgini </p> <span>• </span>
+                                        <p>150 km/l</p> <span> • </span>
                                         <p><span>$$$</span>$$</p>
                                         <ul>
                                             <li><span class="icon-location-pin"></span>
-                                                <p>1301 Bhaktapur,Nepal, NY 11230</p>
+                                                <p> Bhaktapur,Nepal</p>
                                             </li>
                                             <li><span class="icon-screen-smartphone"></span>
-                                                <p>+44 20 7336 8898</p>
+                                                <p>98412222</p>
                                             </li>
-                                            <li><span class="icon-link"></span>
-                                                <p>https://burgerandlobster.com</p>
-                                            </li>
-
                                         </ul>
                                         <div class="bottom-icons">
-                                            <div class="open-now">OPEN NOW</div>
+                                            <div class="open-now">BOOK NOW</div>
                                             <span class="ti-heart"></span>
                                             <span class="ti-bookmark"></span>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                </div>
-                <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="style/images/featured3.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating">3.2</span>
-                            <div class="featured-title-box">
-                                <h6>Tasty Hand-Pulled Noodles</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
-                                <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
-                                    </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
-                                    </li>
-                                    <li><span class="icon-link"></span>
-                                        <p>https://burgerandlobster.com</p>
-                                    </li>
-
-                                </ul>
-                                <div class="bottom-icons">
-                                    <div class="open-now">OPEN NOW</div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="row justify-content-center">
